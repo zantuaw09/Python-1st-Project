@@ -10,4 +10,6 @@ TODO
 
 ## Do you have any questions of your own?
 
-TODO
+What extent can we refer to the internet or other CS-relevant resources to get inspiration (not copy ideas) for project concepts?
+
+Would you say a more practical application is better for this project or more trivial to reflect the level of skills we have in coding?
