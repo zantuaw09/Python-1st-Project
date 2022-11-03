@@ -2,7 +2,9 @@
 
 ## What idea(s) do you have for your final project?
 
-TODO
+- Clicker game with betting/gambling for better scores (apply Monte-Carlo)
+- Sorting tool or game involving library call numbers?
+- Any game programmed on calculator?
 
 ## If you plan to collaborate with one or two classmates, what are their names?
 
