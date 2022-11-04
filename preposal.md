@@ -13,4 +13,4 @@ If not working alone, John Currie or Ian Thorpe
 
 ## Do you have any questions of your own?
 
-What extent can we refer to the internet or other CS-relevant resources to get inspiration (not copy ideas) for project concepts?
+What extent can we refer to the internet or other CS-relevant resources to get inspiration (not copy ideas) for concepts and further refinements throughout our project?
