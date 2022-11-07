@@ -14,7 +14,7 @@ TODO
 
 ## If planning to combine 1051's final project with another course's final project, with which other course? And which aspect(s) of your proposed project would relate to 1051, and which aspect(s) would relate to the other course?
 
-TODO, if applicable
+Not planning on double-dipping final projects with other courses.
 
 ## If planning to collaborate with 1 or 2 classmates for the final project, list their names, email addresses, and the names of their assigned TAs below.
 
@@ -36,4 +36,6 @@ TODO
 
 ## In a paragraph or more, outline your next steps. What new skills will you need to acquire? What topics will you need to research? If working with one of two classmates, who will do what?
 
-TODO
+- Learn how to use and apply 'pygame' modules
+- Apply graphics or sprites to create interactive buttons and visuals?
+- Make concise sorting function of call number inputs
