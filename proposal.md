@@ -25,14 +25,15 @@ N/A (planning on working alone)
 ### In a sentence (or list of features), define a GOOD outcome for your final project. I.e., what WILL you accomplish no matter what?
 
 - Function that sorts a list of strings based on Library of Congress call number system (must implement rules!)
-- Randomly generate valid book call numbers in mixed order
+- Randomly generate valid book call numbers in mixed order and _display call numbers_
+- Allow player to directly change order of books in list
 - Check accuracy of player's input for a shelf to the correct list
 
 ### In a sentence (or list of features), define a BETTER outcome for your final project. I.e., what do you THINK you can accomplish before the final project's deadline?
 
-- Allow player to directly change order of books in list
 - ***USING PYGAME***, develop custom graphics of physical books with call numbers, allowing for visual reorganization on-screen
 - Design timer to track how fast books were reorganized
+- Implement basic buttons needed to progress game, like check results and replay game
 
 ### In a sentence (or list of features), define a BEST outcome for your final project. I.e., what do you HOPE to accomplish before the final project's deadline?
 
