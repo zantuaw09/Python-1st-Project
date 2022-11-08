@@ -10,7 +10,9 @@ An informative game that involves quickly reorganizing library books based on th
 
 ## In a paragraph or more, detail your project. What will your software do? What features will it have? How will it be executed?
 
-TODO
+My software will be a game in which a list of "books" will be displayed with their unique CALL NUMBERS -- the labels used by libraries to organize shelves based on subject -- and has the player move around the books in an attempt to place the list in the correct order. . .
+
+STILL TODO
 
 ## If planning to combine 1051's final project with another course's final project, with which other course? And which aspect(s) of your proposed project would relate to 1051, and which aspect(s) would relate to the other course?
 
