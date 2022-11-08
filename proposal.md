@@ -6,7 +6,7 @@ ReShelved - A Speed Sorting Game
 
 ## In just a sentence or two, summarize your project. (E.g., "A website that lets you buy and sell stocks.")
 
-An informative game that involves quickly reorganizing library books based on their call numbers, akin to educational typing games.
+An informative game that involves quickly reorganizing library books based on their call numbers, akin to educational typing games. Since I've been working at Charles Library ever since I got here at Temple, I think having a way to learn this skill is pretty valuable to use any library effectively.
 
 ## In a paragraph or more, detail your project. What will your software do? What features will it have? How will it be executed?
 
