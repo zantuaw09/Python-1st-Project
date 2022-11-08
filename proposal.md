@@ -10,9 +10,8 @@ An informative game that involves quickly reorganizing library books based on th
 
 ## In a paragraph or more, detail your project. What will your software do? What features will it have? How will it be executed?
 
-My software will be a game in which a list of "books" will be displayed with their unique CALL NUMBERS -- the labels used by libraries to organize shelves based on subject -- and has the player move around the books in an attempt to place the list in the correct order. . .
+My software will be a game in which a list of "books" will be displayed with their unique CALL NUMBERS -- the labels used by libraries to organize shelves based on subject -- and has the player move around the books in an attempt to place the list in the correct order. The program will mainly be able to randomly generate a list of possible call numbers according to the rules of the Library of Congress classification. Ideally, I should be able to use pygame to display several sprites of books with these call numbers that can be reorganized in a line and checked to see if it matches the proper sequence. I am planning to generally include a list of 10 call numbers per game, but if possible, I could increase the difficulty by adding more books to the list. I also want to implement some simple button functions such as replays, submits, and the visual shifting of the books across the list.
 
-STILL TODO
 
 ## If planning to combine 1051's final project with another course's final project, with which other course? And which aspect(s) of your proposed project would relate to 1051, and which aspect(s) would relate to the other course?
 
