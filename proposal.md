@@ -2,11 +2,11 @@
 
 ## What will (likely) be the title of your project?
 
-ReShelved - Library Book Speed Sorting
+ReShelved - A Speed Sorting Game
 
 ## In just a sentence or two, summarize your project. (E.g., "A website that lets you buy and sell stocks.")
 
-An informative game that involves quickly reorganizing book stacks based on their call numbers, akin to educational typing games.
+An informative game that involves quickly reorganizing library books based on their call numbers, akin to educational typing games.
 
 ## In a paragraph or more, detail your project. What will your software do? What features will it have? How will it be executed?
 
