@@ -25,13 +25,13 @@ N/A (planning on working alone)
 ### In a sentence (or list of features), define a GOOD outcome for your final project. I.e., what WILL you accomplish no matter what?
 
 - Function that sorts a list of strings based on Library of Congress call number system (must implement rules!)
-- Randomly generate valid book call numbers in mixed order and _display call numbers_
-- Allow player to directly change order of books in list
-- Check accuracy of player's input for a shelf to the correct list
+- Randomly generate valid book call numbers in mixed order and _display call numbers_ 
+- Allow player to directly change order of books/call numbers in list
+- Check accuracy of player's input for a shelf to a correctly sorted list using **INDICIES**
 
 ### In a sentence (or list of features), define a BETTER outcome for your final project. I.e., what do you THINK you can accomplish before the final project's deadline?
 
-- ***USING PYGAME***, develop custom graphics of physical books with call numbers, allowing for visual reorganization on-screen
+- ***USING PYGAME***, develop moveable graphics of physical books with call numbers, allowing for visual reorganization on-screen
 - Design timer to track how fast books were reorganized
 - Implement basic buttons needed to progress game, like check results and replay game
 
@@ -39,10 +39,8 @@ N/A (planning on working alone)
 
 - Add fluid "physics" of book sprite movements; i.e., books realistically *shift* when a book is placed in a new spot
 - Add possible difficulty settings (number of shelves and books)
-- 
+- Create unique graphics that make recognizing each distinct book easier
 
 ## In a paragraph or more, outline your next steps. What new skills will you need to acquire? What topics will you need to research? If working with one of two classmates, who will do what?
 
-- Learn how to use and apply 'pygame' modules
-- Apply graphics or sprites to create interactive buttons and visuals?
-- Make concise sorting function of call number inputs
+Much of my next steps will involve learning more about the different 'pygame' modules and how I might be able to apply its interface for designing sprites and other graphics for my game. Since my goal is to correspond these visuals to a proper list that can be checked by my program, I will need to review different applications made by pygame or any other options I might have for creating interactive graphics. As I explore these possibilities, I must also begin to develop a concise *function* in Python itself that will correctly sort valid call numbers, a crucial component to my concept even if my vision for the game/tool slightly changes over time. This will allow for a list of randomly generated call numbers to be given to the mixed up and create the basic gameplay of trying to move around the items into a proper order.
