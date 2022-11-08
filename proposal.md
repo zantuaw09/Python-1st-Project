@@ -24,18 +24,21 @@ N/A (planning on working alone)
 
 ### In a sentence (or list of features), define a GOOD outcome for your final project. I.e., what WILL you accomplish no matter what?
 
-- Function that sorts a list of strings based on Library of Congress call number system
+- Function that sorts a list of strings based on Library of Congress call number system (must implement rules!)
 - Randomly generate valid book call numbers in mixed order
-- Check accuracy of current shelf to the correct list
+- Check accuracy of player's input for a shelf to the correct list
 
 ### In a sentence (or list of features), define a BETTER outcome for your final project. I.e., what do you THINK you can accomplish before the final project's deadline?
 
-- Develop moveable graphics of physical books corresponding to list of call numbers, allowing for their reorganization on-screen
-- TODO
+- Allow player to directly change order of books in list
+- ***USING PYGAME***, develop custom graphics of physical books with call numbers, allowing for visual reorganization on-screen
+- Design timer to track how fast books were reorganized
 
 ### In a sentence (or list of features), define a BEST outcome for your final project. I.e., what do you HOPE to accomplish before the final project's deadline?
 
-TODO
+- Add fluid "physics" of book sprite movements; i.e., books realistically *shift* when a book is placed in a new spot
+- Add possible difficulty settings (number of shelves and books)
+- 
 
 ## In a paragraph or more, outline your next steps. What new skills will you need to acquire? What topics will you need to research? If working with one of two classmates, who will do what?
 
