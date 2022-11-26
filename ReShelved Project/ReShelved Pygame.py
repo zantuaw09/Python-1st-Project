@@ -1,3 +1,5 @@
+import random
+
 import pygame
 from sys import exit
 
@@ -11,8 +13,10 @@ clock = pygame.time.Clock()
 
 ### FUNCTIONS OF THE GAME: ###
 
-def call_n():
-    order = []
+
+def rand_call_n():
+    call = ''
+    n1 = random.randint(1,999)
 
     # ***To Do***: MUST MAKE SORTING FUNCTION FOR CALL NUMBERS!!!
 
