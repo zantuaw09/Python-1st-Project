@@ -26,6 +26,6 @@ I need to properly code and test at least TWO distinct functions that will creat
 
 #### What problems, if any, have you encountered?
 
-Developing a fluid interface for the game and movement of surfaces -- i.e. the programming of motions like sliding books on shelves and actions like switching positions with other books. 
+Found some challenge in developing a fluid interface for the game and movement of surfaces -- i.e. the programming of motions like sliding books on shelves and actions like switching positions with other books. Some of my initial ideas on how the game will be played have changed to best accomodate with the tools provided by pygame.
 
 As I continue development, especially as I shift focus towards programming the call number system of the game, I will need to continue refining this portion of the game and make it as intuitive as possible to make playing the game feel easy to pick up.
