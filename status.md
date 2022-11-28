@@ -28,4 +28,4 @@ I need to properly code and test at least TWO distinct functions that will creat
 
 Developing a fluid interface for the game and movement of surfaces -- i.e. the programming of motions like sliding books on shelves and actions like switching positions with other books. 
 
-As I continue development, especially as I shift focus towards programming the call number system of the game, I will need to continue refining this portion of the game and make it intuitive enough for the game to be played.
+As I continue development, especially as I shift focus towards programming the call number system of the game, I will need to continue refining this portion of the game and make it as intuitive as possible to make playing the game feel easy to pick up.
