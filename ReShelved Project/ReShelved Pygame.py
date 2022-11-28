@@ -1,4 +1,5 @@
 import random
+import string
 
 import pygame
 from sys import exit
@@ -13,6 +14,9 @@ clock = pygame.time.Clock()
 
 ### FUNCTIONS OF THE GAME: ###
 
+def r_letter():
+    alphabet = list(string.ascii_uppercase)
+    """return random.random(alphabet)"""
 
 def rand_call_n():
     call = ''
@@ -23,6 +27,8 @@ def rand_call_n():
 
 
 ### SURFACES: ###
+
+
 
 bg = pygame.Surface((1000, 600))
 bg.fill('white')
