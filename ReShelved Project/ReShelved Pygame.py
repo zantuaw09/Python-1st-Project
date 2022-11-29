@@ -167,121 +167,24 @@ while True:
                         grabbed = [book3, book3_rect, call3]
 
 
-                
-
-                        
-                """
-                elif clicks[0] is False:
-                    for rect in rect_list:
-                        if book1_rect.colliderect(rect) and rect != book1_rect:
-                            rect.x, book1_rect.x = book1_rect.x, rect.x
-
-                            
-                            if rect.x < book1_rect.x and book1_rect.x < 525:           # moving LEFT
-                                rect.x = book1_rect.x + 100
-                                pass
-
-                            elif rect.x > book1_rect.x and book1_rect.x > 225:           # moving RIGHT
-                                rect.x = book1_rect.x - 100
-                                pass
-                """
-                            
-                    
-                """
-                elif clicks[0] is False:
-                    for rect in rect_list:
-                        if book2_rect.colliderect(rect) and rect != book2_rect:
-                            rect.x, book2_rect.x = book2_rect.x, rect.x
-                            
-                            if rect.x < book2_rect.x and book2_rect.x < 525:           # moving LEFT
-                                rect.x = book2_rect.x + 100
-                                pass
-
-                            elif rect.x > book2_rect.x and book2_rect.x > 225:           # moving RIGHT
-                                rect.x = book2_rect.x - 100
-                                pass
-                """
-
         
         for rect in rect_list:
                 if event.type == pygame.MOUSEBUTTONUP and rect.collidepoint(mouse_pos):
                     
                     if book1_rect.colliderect(rect) and rect != book1_rect:
                         rect.x, book1_rect.x = book1_rect.x, rect.x
-                        """
-                        if rect.x < book1_rect.x:               # moving LEFT
-                            
-                            overlap = book1_rect.x - rect.x
-                            
-                            rect.x += overlap
-                            book1_rect.x -= 100
-                            
-                        
-                        elif rect.x > book1_rect.x:            # moving RIGHT
-                            
-                            overlap = rect.x - book1_rect.x
-                            
-                            rect.x -= 100
-                            book1_rect.x += overlap
-                        """   
-                        
+                       
 
                     elif book2_rect.colliderect(rect) and rect != book2_rect:
                         rect.x, book2_rect.x = book2_rect.x, rect.x
-                        """
-                        if rect.x < book2_rect.x:           # moving LEFT
-                            
-                            overlap = book2_rect.x - rect.x
-                            
-                            rect.x += overlap
-                            book2_rect.x -= 100
-                            
-                        elif rect.x > book2_rect.x:           # moving RIGHT
-                            
-                            overlap = rect.x - book2_rect.x
-                            
-                            rect.x -= 100
-                            book2_rect.x += overlap
-                        """
+
 
                     elif book3_rect.colliderect(rect) and rect != book3_rect:
                         rect.x, book3_rect.x = book3_rect.x, rect.x
-                        """
-                        if rect.x < book3_rect.x:           # moving LEFT
-                            
-                            overlap = book3_rect.x - rect.x
-                            
-                            rect.x += overlap
-                            book3_rect.x -= 100
-                            
-                        elif rect.x > book3_rect.x:           # moving RIGHT
-                            
-                            overlap = rect.x - book3_rect.x
-                            
-                            rect.x -= 100
-                            book3_rect.x += overlap
-                        """  
-
-
-
 
 
 
                 """
-            
-
-                elif clicks[0] is False:
-                    for rect in rect_list:
-                        if book3_rect.colliderect(rect) and rect != book3_rect:
-                            if rect.x < book3_rect.x and book3_rect.x < 525:           # moving LEFT
-                                rect.x = book3_rect.x + 100
-                                pass
-
-                            elif rect.x > book3_rect.x and book3_rect.x > 225:           # moving RIGHT
-                                rect.x = book3_rect.x - 100
-                                pass
-
-
             
 
             elif book4_rect.collidepoint(event.pos) and clicks[0] is True:
@@ -344,9 +247,4 @@ while True:
     # https://www.youtube.com/watch?v=AY9MnQ4x3zk, 1:13:46 !!
 
 
-"""
-    window.fill((113, 177, 222))
 
-    pygame.draw.rect(window, (190, 119, 80), ((50, 50), (900, 350)))
-    pygame.draw.rect(window, (102, 48, 31), ((75, 75), (850, 300)))
-"""
