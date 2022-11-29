@@ -16,11 +16,17 @@ clock = pygame.time.Clock()
 
 def r_letter():
     alphabet = list(string.ascii_uppercase)
-    """return random.random(alphabet)"""
+    i = random.randint(0, 25)
+    return alphabet[i]
+    
 
-def rand_call_n():
-    call = ''
-    n1 = random.randint(1,999)
+def call_n():
+
+    let1 = r_letter() + r_letter()
+    num1 = str(random.randint(1,999))
+    let2 = r_letter() + r_letter()
+    num2 = str(random.randint(1,999))
+    return let1 + ' ' + num1 + ' ' + let2 + ' ' + num2
 
     # ***To Do***: MUST MAKE SORTING FUNCTION FOR CALL NUMBERS!!!
 
@@ -39,21 +45,27 @@ shelf_rect = shelf.get_rect(topleft = (100, 100))
 
 book1 = pygame.image.load('graphics/redbook.png').convert()
 book1_rect = book1.get_rect(topleft = (125, 125))
+title1 = call_n()
 
 book2 = pygame.image.load('graphics/bluebook.png').convert()
 book2_rect = book2.get_rect(topleft = (245, 125))
+title2 = call_n()
 
 book3 = pygame.image.load('graphics/placeholder.png').convert()
 book3_rect = book3.get_rect(topleft = (365, 125))
+title3 = call_n()
 
 book4 = pygame.image.load('graphics/placeholder.png').convert()
 book4_rect = book4.get_rect(topleft = (485, 125))
+title4 = call_n()
 
 book5 = pygame.image.load('graphics/placeholder.png').convert()
 book5_rect = book5.get_rect(topleft = (605, 125))
+title5 = call_n()
 
 
-order = ['QC 981.8 .G56 G578', 'QC 981.8 .G56 G578 2002', 'QC 981.8 .G56 G578 2006']
+
+order = [title1, title2, title3, title4, title5]
 
 
 text_font = pygame.font.Font('fonts/kongtext.ttf', 30)
@@ -80,14 +92,13 @@ while True:
         rect_list = [book1_rect, book2_rect, book3_rect]
         call_list = [call1, call2, call3]
         
-
+        screen.blit(bg, (0, 0))
+        screen.blit(shelf, shelf_rect)
+        
         
         if event.type == pygame.QUIT:
             pygame.quit()
             exit()
-
-        screen.blit(bg, (0, 0))
-        screen.blit(shelf, shelf_rect)
         
         if event.type == pygame.MOUSEMOTION:
 
@@ -104,23 +115,27 @@ while True:
                         grabbed[1].x = event.pos[0] - difference
 
                         for rect in rect_list:
-                            if grabbed[1].colliderect(rect) and rect != grabbed[1]:
-                                print('collide!!')
+                            if grabbed[1].colliderect(rect):
+                                print(rect.x)
+                                print(grabbed[1].x)
                                 if rect.x > grabbed[1].x:
                                     grabbed[1].x = rect.x - 100
+                                    break
 
                                 elif rect.x < grabbed[1].x:
                                     grabbed[1].x = rect.x + 100
+                                    break
+                            
 
             else:        
-                if book3_rect.collidepoint(event.pos):
-                    screen.blit(call3, (150, 30))
+                if book1_rect.collidepoint(event.pos):
+                    screen.blit(call1, (150, 30))
 
                     if clicks[0] is True:
-                        difference = mouse_pos[0] - book3_rect.x
-                        book3_rect.x = event.pos[0] - difference
+                        difference = mouse_pos[0] - book1_rect.x
+                        book1_rect.x = event.pos[0] - difference
 
-                        grabbed = [book3, book3_rect, call3]
+                        grabbed = [book1, book1_rect, call1]
 
 
                 elif book2_rect.collidepoint(event.pos):
@@ -134,14 +149,17 @@ while True:
                         grabbed = [book2, book2_rect, call2]
 
 
-                elif book1_rect.collidepoint(event.pos):
-                    screen.blit(call1, (150, 30))
+                elif book3_rect.collidepoint(event.pos):
+                    screen.blit(call3, (150, 30))
 
                     if clicks[0] is True:
-                        difference = mouse_pos[0] - book1_rect.x
-                        book1_rect.x = event.pos[0] - difference
+                        difference = mouse_pos[0] - book3_rect.x
+                        book3_rect.x = event.pos[0] - difference
 
-                        grabbed = [book1, book1_rect, call1]
+                        grabbed = [book3, book3_rect, call3]
+
+
+                
 
                         
                 """
