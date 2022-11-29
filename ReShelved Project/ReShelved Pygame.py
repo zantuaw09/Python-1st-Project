@@ -5,6 +5,13 @@ import pygame
 from sys import exit
 
 
+class Book(pygame.sprite.Sprite):
+    def __init__(self, picture_path):
+        super().__init__()
+        self.image = pygame.image.load(picture_path)
+        self.rect = self.image.get_rect()
+
+
 pygame.init()
 screen = pygame.display.set_mode([1000, 600])
 pygame.display.set_caption("ReShelved")
@@ -43,6 +50,7 @@ bg.fill('white')
 shelf = pygame.image.load('graphics/shelf.png').convert()
 shelf_rect = shelf.get_rect(topleft = (100, 100))
 
+#book1 = Book('graphics/redbook.png')
 book1 = pygame.image.load('graphics/redbook.png').convert()
 book1_rect = book1.get_rect(topleft = (125, 125))
 title1 = call_n()
