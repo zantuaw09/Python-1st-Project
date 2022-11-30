@@ -122,9 +122,13 @@ while True:
                         difference = mouse_pos[0] - grabbed[1].x
                         grabbed[1].x = event.pos[0] - difference
 
-                        for rect in rect_list:
-                            if grabbed[1].colliderect(rect):
 
+                        
+                        for rect in rect_list:
+                            if grabbed[1].colliderect(rect) and rect != grabbed[1]:
+                                
+                                print('collided with. . . ')
+                                print(rect)
                                 collision_tolerence = 10
                                 
                                 if rect.x > grabbed[1].x:
