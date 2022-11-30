@@ -127,10 +127,17 @@ while True:
                         for rect in rect_list:
                             if grabbed[1].colliderect(rect) and rect != grabbed[1]:
                                 
-                                print('collided with. . . ')
-                                print(rect)
                                 collision_tolerence = 10
                                 
+                                if abs(rect.left - grabbed[1].right) < 10:
+                                    grabbed[1].x = rect.x - 100
+                                    break
+
+                                elif abs(rect.right - grabbed[1].left) < 10:
+                                    grabbed[1].x = rect.x + 100
+                                    break
+
+                                """
                                 if rect.x > grabbed[1].x:
                                     grabbed[1].x = rect.x - 100
                                     break
@@ -138,6 +145,7 @@ while True:
                                 elif rect.x < grabbed[1].x:
                                     grabbed[1].x = rect.x + 100
                                     break
+                                """
                             
 
             else:        
