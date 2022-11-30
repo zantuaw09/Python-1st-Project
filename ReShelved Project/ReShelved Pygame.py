@@ -51,23 +51,10 @@ bg.fill('white')
 shelf = pygame.image.load('graphics/shelf.png').convert()
 shelf_rect = shelf.get_rect(topleft = (100, 100))
 
-# midpoint is 50, 175
+
 
 #book1 = Book('graphics/redbook.png')
 
-book1 = pygame.image.load('graphics/redbook.png').convert()
-book1_rect = book1.get_rect(center = (175, 300))
-title1 = call_n()
-
-book2 = pygame.image.load('graphics/bluebook.png').convert()
-book2_rect = book2.get_rect(center = (295, 300))
-title2 = call_n()
-
-book3 = pygame.image.load('graphics/placeholder.png').convert()
-book3_rect = book3.get_rect(center = (415, 300))
-title3 = call_n()
-
-"""
 book1 = pygame.image.load('graphics/redbook.png').convert()
 book1_rect = book1.get_rect(topleft = (125, 125))
 title1 = call_n()
@@ -79,7 +66,7 @@ title2 = call_n()
 book3 = pygame.image.load('graphics/placeholder.png').convert()
 book3_rect = book3.get_rect(topleft = (365, 125))
 title3 = call_n()
-"""
+
 book4 = pygame.image.load('graphics/placeholder.png').convert()
 book4_rect = book4.get_rect(topleft = (485, 125))
 title4 = call_n()
@@ -140,17 +127,15 @@ while True:
                         for rect in rect_list:
                             if grabbed[1].colliderect(rect) and rect != grabbed[1]:
                                 
-                                collision_tolerence = 10
+                                collision_tolerence = 50
                             
-                                
-                                if abs(rect.right - grabbed[1].left) <= 10:
+                                if abs(rect.right - grabbed[1].left) <= 50:
                                     grabbed[1].x = rect.x + 100
                                     break
 
-                                elif abs(rect.left - grabbed[1].right) <= 10:
+                                elif abs(rect.left - grabbed[1].right) <= 50:
                                     grabbed[1].x = rect.x - 100
-                                    break
-                                
+                                    break       
                             
 
             else:        
@@ -165,16 +150,15 @@ while True:
                         for rect in rect_list:
                             if grabbed[1].colliderect(rect) and rect != grabbed[1]:
                                 
-                                collision_tolerence = 10
+                                collision_tolerence = 50
                             
-                                
-                                if abs(rect.right - grabbed[1].left) <= 10:
+                                if abs(rect.right - grabbed[1].left) <= 50:
                                     grabbed[1].x = rect.x + 100
                                     break
 
-                                elif abs(rect.left - grabbed[1].right) <= 10:
+                                elif abs(rect.left - grabbed[1].right) <= 50:
                                     grabbed[1].x = rect.x - 100
-                                    break
+                                    break       
                                 
 
                 elif book2_rect.collidepoint(event.pos):
@@ -188,16 +172,15 @@ while True:
                         for rect in rect_list:
                             if grabbed[1].colliderect(rect) and rect != grabbed[1]:
                                 
-                                collision_tolerence = 10
+                                collision_tolerence = 50
                             
-                                
-                                if abs(rect.right - grabbed[1].left) <= 10:
+                                if abs(rect.right - grabbed[1].left) <= 50:
                                     grabbed[1].x = rect.x + 100
                                     break
 
-                                elif abs(rect.left - grabbed[1].right) <= 10:
+                                elif abs(rect.left - grabbed[1].right) <= 50:
                                     grabbed[1].x = rect.x - 100
-                                    break
+                                    break       
                                 
     
                 elif book3_rect.collidepoint(event.pos):
@@ -211,17 +194,15 @@ while True:
                         for rect in rect_list:
                             if grabbed[1].colliderect(rect) and rect != grabbed[1]:
                                 
-                                collision_tolerence = 10
+                                collision_tolerence = 50
                             
-                                
-                                if abs(rect.right - grabbed[1].left) <= 10:
+                                if abs(rect.right - grabbed[1].left) <= 50:
                                     grabbed[1].x = rect.x + 100
                                     break
 
-                                elif abs(rect.left - grabbed[1].right) <= 10:
+                                elif abs(rect.left - grabbed[1].right) <= 50:
                                     grabbed[1].x = rect.x - 100
-                                    break
-                                
+                                    break                                
 
         
         for rect in rect_list:
