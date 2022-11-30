@@ -71,7 +71,7 @@ book4 = pygame.image.load('graphics/placeholder.png').convert()
 book4_rect = book4.get_rect(topleft = (485, 125))
 title4 = call_n()
 
-book5 = pygame.image.load('graphics/placeholder.png').convert()
+book5 = pygame.image.load('graphics/purplebook.png').convert()
 book5_rect = book5.get_rect(topleft = (605, 125))
 title5 = call_n()
 
@@ -83,7 +83,7 @@ order = [title1, title2, title3, title4, title5]
 text_font = pygame.font.Font('fonts/kongtext.ttf', 30)
 call1 = text_font.render(order[0], False, 'red')
 call2 = text_font.render(order[1], False, 'blue')
-call3 = text_font.render(order[2], False, 'gold')
+call3 = text_font.render(order[2], False, 'orange')
 call4 = text_font.render(order[3], False, 'green')
 call5 = text_font.render(order[4], False, 'purple')
 
