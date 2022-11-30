@@ -1,6 +1,7 @@
 import random
 import string
 
+
 import pygame
 from sys import exit
 
@@ -111,7 +112,6 @@ while True:
         if event.type == pygame.MOUSEMOTION:
 
             if grabbed != []:
-                print(grabbed)
 
                 if grabbed[1].collidepoint(event.pos):
                     screen.blit(grabbed[2], (150, 30))
@@ -124,8 +124,9 @@ while True:
 
                         for rect in rect_list:
                             if grabbed[1].colliderect(rect):
-                                print(rect.x)
-                                print(grabbed[1].x)
+
+                                collision_tolerence = 10
+                                
                                 if rect.x > grabbed[1].x:
                                     grabbed[1].x = rect.x - 100
                                     break
@@ -224,21 +225,11 @@ while True:
                 rect.x = 625
         
             screen.blit(book, rect)
-
+        
         if clicks[0] is True and grabbed != []:
             screen.blit(grabbed[0], grabbed[1])
-                
+             
 
-
-        
-        
-        
-
-        """
-        screen.blit(book3, book3_rect)
-        screen.blit(book4, book4_rect)
-        screen.blit(book5, book5_rect)
-        """
     
 
     pygame.display.update()
