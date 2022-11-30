@@ -51,7 +51,23 @@ bg.fill('white')
 shelf = pygame.image.load('graphics/shelf.png').convert()
 shelf_rect = shelf.get_rect(topleft = (100, 100))
 
+# midpoint is 50, 175
+
 #book1 = Book('graphics/redbook.png')
+
+book1 = pygame.image.load('graphics/redbook.png').convert()
+book1_rect = book1.get_rect(center = (175, 300))
+title1 = call_n()
+
+book2 = pygame.image.load('graphics/bluebook.png').convert()
+book2_rect = book2.get_rect(center = (295, 300))
+title2 = call_n()
+
+book3 = pygame.image.load('graphics/placeholder.png').convert()
+book3_rect = book3.get_rect(center = (415, 300))
+title3 = call_n()
+
+"""
 book1 = pygame.image.load('graphics/redbook.png').convert()
 book1_rect = book1.get_rect(topleft = (125, 125))
 title1 = call_n()
@@ -63,7 +79,7 @@ title2 = call_n()
 book3 = pygame.image.load('graphics/placeholder.png').convert()
 book3_rect = book3.get_rect(topleft = (365, 125))
 title3 = call_n()
-
+"""
 book4 = pygame.image.load('graphics/placeholder.png').convert()
 book4_rect = book4.get_rect(topleft = (485, 125))
 title4 = call_n()
@@ -117,35 +133,24 @@ while True:
                     screen.blit(grabbed[2], (150, 30))
 
                     if clicks[0] is True:
-                        screen.blit(grabbed[2], (150, 30))
-                        
+            
                         difference = mouse_pos[0] - grabbed[1].x
                         grabbed[1].x = event.pos[0] - difference
 
-
-                        
                         for rect in rect_list:
                             if grabbed[1].colliderect(rect) and rect != grabbed[1]:
                                 
                                 collision_tolerence = 10
+                            
                                 
-                                if abs(rect.left - grabbed[1].right) < 10:
-                                    grabbed[1].x = rect.x - 100
-                                    break
-
-                                elif abs(rect.right - grabbed[1].left) < 10:
+                                if abs(rect.right - grabbed[1].left) <= 10:
                                     grabbed[1].x = rect.x + 100
                                     break
 
-                                """
-                                if rect.x > grabbed[1].x:
+                                elif abs(rect.left - grabbed[1].right) <= 10:
                                     grabbed[1].x = rect.x - 100
                                     break
-
-                                elif rect.x < grabbed[1].x:
-                                    grabbed[1].x = rect.x + 100
-                                    break
-                                """
+                                
                             
 
             else:        
@@ -157,19 +162,44 @@ while True:
                         book1_rect.x = event.pos[0] - difference
 
                         grabbed = [book1, book1_rect, call1]
+                        for rect in rect_list:
+                            if grabbed[1].colliderect(rect) and rect != grabbed[1]:
+                                
+                                collision_tolerence = 10
+                            
+                                
+                                if abs(rect.right - grabbed[1].left) <= 10:
+                                    grabbed[1].x = rect.x + 100
+                                    break
 
+                                elif abs(rect.left - grabbed[1].right) <= 10:
+                                    grabbed[1].x = rect.x - 100
+                                    break
+                                
 
                 elif book2_rect.collidepoint(event.pos):
                     screen.blit(call2, (150, 30))
-                    
                     
                     if clicks[0] is True:
                         difference = mouse_pos[0] - book2_rect.x
                         book2_rect.x = event.pos[0] - difference
 
                         grabbed = [book2, book2_rect, call2]
+                        for rect in rect_list:
+                            if grabbed[1].colliderect(rect) and rect != grabbed[1]:
+                                
+                                collision_tolerence = 10
+                            
+                                
+                                if abs(rect.right - grabbed[1].left) <= 10:
+                                    grabbed[1].x = rect.x + 100
+                                    break
 
-
+                                elif abs(rect.left - grabbed[1].right) <= 10:
+                                    grabbed[1].x = rect.x - 100
+                                    break
+                                
+    
                 elif book3_rect.collidepoint(event.pos):
                     screen.blit(call3, (150, 30))
 
@@ -178,7 +208,20 @@ while True:
                         book3_rect.x = event.pos[0] - difference
 
                         grabbed = [book3, book3_rect, call3]
+                        for rect in rect_list:
+                            if grabbed[1].colliderect(rect) and rect != grabbed[1]:
+                                
+                                collision_tolerence = 10
+                            
+                                
+                                if abs(rect.right - grabbed[1].left) <= 10:
+                                    grabbed[1].x = rect.x + 100
+                                    break
 
+                                elif abs(rect.left - grabbed[1].right) <= 10:
+                                    grabbed[1].x = rect.x - 100
+                                    break
+                                
 
         
         for rect in rect_list:
@@ -230,11 +273,11 @@ while True:
         
         
         for book, rect in zip(book_list, rect_list):
-            if rect.x < 125:
-                rect.x = 125
+            if rect.left < 125:
+                rect.left = 125
 
-            elif rect.x > 625:
-                rect.x = 625
+            elif rect.right > 725:
+                rect.right = 725
         
             screen.blit(book, rect)
         
@@ -247,7 +290,6 @@ while True:
     pygame.display.update()
     clock.tick(60)
 
-    # https://www.youtube.com/watch?v=AY9MnQ4x3zk, 1:13:46 !!
 
 
 
