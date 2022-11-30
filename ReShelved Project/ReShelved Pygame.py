@@ -84,9 +84,11 @@ text_font = pygame.font.Font('fonts/kongtext.ttf', 30)
 call1 = text_font.render(order[0], False, 'red')
 call2 = text_font.render(order[1], False, 'blue')
 call3 = text_font.render(order[2], False, 'gold')
+call4 = text_font.render(order[3], False, 'green')
+call5 = text_font.render(order[4], False, 'purple')
 
 
-
+grabbed = []
 
 
 ### GAMEPLAY LOOP ###
@@ -96,13 +98,13 @@ while True:
 
     mouse_pos = pygame.mouse.get_pos()
     clicks = pygame.mouse.get_pressed()
-    grabbed = []
+
     
     for event in pygame.event.get():
 
-        book_list = [book1, book2, book3]
-        rect_list = [book1_rect, book2_rect, book3_rect]
-        call_list = [call1, call2, call3]
+        book_list = [book1, book2, book3, book4, book5]
+        rect_list = [book1_rect, book2_rect, book3_rect, book4_rect, book5_rect]
+        call_list = [call1, call2, call3, call4, call5]
         
         screen.blit(bg, (0, 0))
         screen.blit(shelf, shelf_rect)
@@ -123,20 +125,20 @@ while True:
             
                         difference = mouse_pos[0] - grabbed[1].x
                         grabbed[1].x = event.pos[0] - difference
-
+                        
                         for rect in rect_list:
                             if grabbed[1].colliderect(rect) and rect != grabbed[1]:
                                 
                                 collision_tolerence = 50
                             
                                 if abs(rect.right - grabbed[1].left) <= 50:
-                                    grabbed[1].x = rect.x + 100
+                                    grabbed[1].x = rect.x + 95
                                     break
 
                                 elif abs(rect.left - grabbed[1].right) <= 50:
-                                    grabbed[1].x = rect.x - 100
+                                    grabbed[1].x = rect.x - 95
                                     break       
-                            
+                         
 
             else:        
                 if book1_rect.collidepoint(event.pos):
@@ -153,11 +155,11 @@ while True:
                                 collision_tolerence = 50
                             
                                 if abs(rect.right - grabbed[1].left) <= 50:
-                                    grabbed[1].x = rect.x + 100
+                                    grabbed[1].x = rect.x + 95
                                     break
 
                                 elif abs(rect.left - grabbed[1].right) <= 50:
-                                    grabbed[1].x = rect.x - 100
+                                    grabbed[1].x = rect.x - 95
                                     break       
                                 
 
@@ -175,11 +177,11 @@ while True:
                                 collision_tolerence = 50
                             
                                 if abs(rect.right - grabbed[1].left) <= 50:
-                                    grabbed[1].x = rect.x + 100
+                                    grabbed[1].x = rect.x + 95
                                     break
 
                                 elif abs(rect.left - grabbed[1].right) <= 50:
-                                    grabbed[1].x = rect.x - 100
+                                    grabbed[1].x = rect.x - 95
                                     break       
                                 
     
@@ -197,27 +199,66 @@ while True:
                                 collision_tolerence = 50
                             
                                 if abs(rect.right - grabbed[1].left) <= 50:
-                                    grabbed[1].x = rect.x + 100
+                                    grabbed[1].x = rect.x + 95
                                     break
 
                                 elif abs(rect.left - grabbed[1].right) <= 50:
-                                    grabbed[1].x = rect.x - 100
+                                    grabbed[1].x = rect.x - 95
                                     break                                
 
+                elif book4_rect.collidepoint(event.pos):
+                    screen.blit(call4, (150, 30))
+
+                    if clicks[0] is True:
+                        difference = mouse_pos[0] - book4_rect.x
+                        book4_rect.x = event.pos[0] - difference
+
+                        grabbed = [book4, book4_rect, call4]
+                        for rect in rect_list:
+                            if grabbed[1].colliderect(rect) and rect != grabbed[1]:
+                                
+                                collision_tolerence = 50
+                            
+                                if abs(rect.right - grabbed[1].left) <= 50:
+                                    grabbed[1].x = rect.x + 95
+                                    break
+
+                                elif abs(rect.left - grabbed[1].right) <= 50:
+                                    grabbed[1].x = rect.x - 95
+                                    break
+
+
+                elif book5_rect.collidepoint(event.pos):
+                    screen.blit(call5, (150, 30))
+
+                    if clicks[0] is True:
+                        difference = mouse_pos[0] - book5_rect.x
+                        book5_rect.x = event.pos[0] - difference
+
+                        grabbed = [book5, book5_rect, call5]
+                        for rect in rect_list:
+                            if grabbed[1].colliderect(rect) and rect != grabbed[1]:
+                                
+                                collision_tolerence = 50
+                            
+                                if abs(rect.right - grabbed[1].left) <= 50:
+                                    grabbed[1].x = rect.x + 95
+                                    break
+
+                                elif abs(rect.left - grabbed[1].right) <= 50:
+                                    grabbed[1].x = rect.x - 95
+                                    break
+
+
+                                
         
         for rect in rect_list:
-                if event.type == pygame.MOUSEBUTTONUP and rect.collidepoint(mouse_pos):
+            if event.type == pygame.MOUSEBUTTONUP and rect.collidepoint(mouse_pos) and grabbed != []:
                     
-                    if book1_rect.colliderect(rect) and rect != book1_rect:
-                        rect.x, book1_rect.x = book1_rect.x, rect.x
-                       
+                if grabbed[1].colliderect(rect) and rect != grabbed[1]:
+                    rect.x, grabbed[1].x = grabbed[1].x, rect.x
 
-                    elif book2_rect.colliderect(rect) and rect != book2_rect:
-                        rect.x, book2_rect.x = book2_rect.x, rect.x
-
-
-                    elif book3_rect.colliderect(rect) and rect != book3_rect:
-                        rect.x, book3_rect.x = book3_rect.x, rect.x
+                grabbed = []
 
 
 
