@@ -63,11 +63,11 @@ book2 = pygame.image.load('graphics/bluebook.png').convert()
 book2_rect = book2.get_rect(topleft = (245, 125))
 title2 = call_n()
 
-book3 = pygame.image.load('graphics/placeholder.png').convert()
+book3 = pygame.image.load('graphics/orangebook.png').convert()
 book3_rect = book3.get_rect(topleft = (365, 125))
 title3 = call_n()
 
-book4 = pygame.image.load('graphics/placeholder.png').convert()
+book4 = pygame.image.load('graphics/greenbook.png').convert()
 book4_rect = book4.get_rect(topleft = (485, 125))
 title4 = call_n()
 
