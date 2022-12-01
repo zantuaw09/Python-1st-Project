@@ -124,7 +124,7 @@ while True:
                     if clicks[0] is True:
             
                         difference = mouse_pos[0] - grabbed[1].x
-                        if difference < 50:
+                        if difference > 5:
                             grabbed[1].x = event.pos[0] - difference
                         
                         for rect in rect_list:
@@ -147,7 +147,7 @@ while True:
 
                     if clicks[0] is True:
                         difference = mouse_pos[0] - book1_rect.x
-                        if difference < 50:
+                        if difference > 5:
                             book1_rect.x = event.pos[0] - difference
 
                         grabbed = [book1, book1_rect, call1]
@@ -170,7 +170,7 @@ while True:
                     
                     if clicks[0] is True:
                         difference = mouse_pos[0] - book2_rect.x
-                        if difference < 50:
+                        if difference > 5:
                             book2_rect.x = event.pos[0] - difference
 
                         grabbed = [book2, book2_rect, call2]
@@ -194,7 +194,7 @@ while True:
 
                     if clicks[0] is True:
                         difference = mouse_pos[0] - book3_rect.x
-                        if difference < 50:
+                        if difference > 5:
                             book3_rect.x = event.pos[0] - difference
 
                         grabbed = [book3, book3_rect, call3]
@@ -217,7 +217,7 @@ while True:
 
                     if clicks[0] is True:
                         difference = mouse_pos[0] - book4_rect.x
-                        if difference < 50:
+                        if difference > 5:
                             book4_rect.x = event.pos[0] - difference
 
                         grabbed = [book4, book4_rect, call4]
@@ -241,7 +241,7 @@ while True:
 
                     if clicks[0] is True:
                         difference = mouse_pos[0] - book5_rect.x
-                        if difference < 50:
+                        if difference > 5:
                             book5_rect.x = event.pos[0] - difference
 
                         grabbed = [book5, book5_rect, call5]
