@@ -129,13 +129,13 @@ while True:
                         for rect in rect_list:
                             if grabbed[1].colliderect(rect) and rect != grabbed[1]:
                                 
-                                collision_tolerence = 50
+                                collision_tolerance = 100
                             
-                                if abs(rect.right - grabbed[1].left) <= 50:
+                                if abs(rect.right - grabbed[1].left) <= collision_tolerance:
                                     grabbed[1].x = rect.x + 95
                                     break
 
-                                elif abs(rect.left - grabbed[1].right) <= 50:
+                                elif abs(rect.left - grabbed[1].right) <= collision_tolerance:
                                     grabbed[1].x = rect.x - 95
                                     break       
                          
@@ -152,16 +152,16 @@ while True:
                         for rect in rect_list:
                             if grabbed[1].colliderect(rect) and rect != grabbed[1]:
                                 
-                                collision_tolerence = 50
+                                collision_tolerance = 100
                             
-                                if abs(rect.right - grabbed[1].left) <= 50:
+                                if abs(rect.right - grabbed[1].left) <= collision_tolerance:
                                     grabbed[1].x = rect.x + 95
                                     break
 
-                                elif abs(rect.left - grabbed[1].right) <= 50:
+                                elif abs(rect.left - grabbed[1].right) <= collision_tolerance:
                                     grabbed[1].x = rect.x - 95
                                     break       
-                                
+                         
 
                 elif book2_rect.collidepoint(event.pos):
                     screen.blit(call2, (150, 30))
@@ -174,15 +174,16 @@ while True:
                         for rect in rect_list:
                             if grabbed[1].colliderect(rect) and rect != grabbed[1]:
                                 
-                                collision_tolerence = 50
+                                collision_tolerance = 100
                             
-                                if abs(rect.right - grabbed[1].left) <= 50:
+                                if abs(rect.right - grabbed[1].left) <= collision_tolerance:
                                     grabbed[1].x = rect.x + 95
                                     break
 
-                                elif abs(rect.left - grabbed[1].right) <= 50:
+                                elif abs(rect.left - grabbed[1].right) <= collision_tolerance:
                                     grabbed[1].x = rect.x - 95
                                     break       
+                               
                                 
     
                 elif book3_rect.collidepoint(event.pos):
@@ -196,15 +197,16 @@ while True:
                         for rect in rect_list:
                             if grabbed[1].colliderect(rect) and rect != grabbed[1]:
                                 
-                                collision_tolerence = 50
+                                collision_tolerance = 100
                             
-                                if abs(rect.right - grabbed[1].left) <= 50:
+                                if abs(rect.right - grabbed[1].left) <= collision_tolerance:
                                     grabbed[1].x = rect.x + 95
                                     break
 
-                                elif abs(rect.left - grabbed[1].right) <= 50:
+                                elif abs(rect.left - grabbed[1].right) <= collision_tolerance:
                                     grabbed[1].x = rect.x - 95
-                                    break                                
+                                    break       
+                                                       
 
                 elif book4_rect.collidepoint(event.pos):
                     screen.blit(call4, (150, 30))
@@ -217,15 +219,16 @@ while True:
                         for rect in rect_list:
                             if grabbed[1].colliderect(rect) and rect != grabbed[1]:
                                 
-                                collision_tolerence = 50
+                                collision_tolerance = 100
                             
-                                if abs(rect.right - grabbed[1].left) <= 50:
+                                if abs(rect.right - grabbed[1].left) <= collision_tolerance:
                                     grabbed[1].x = rect.x + 95
                                     break
 
-                                elif abs(rect.left - grabbed[1].right) <= 50:
+                                elif abs(rect.left - grabbed[1].right) <= collision_tolerance:
                                     grabbed[1].x = rect.x - 95
-                                    break
+                                    break       
+                         
 
 
                 elif book5_rect.collidepoint(event.pos):
@@ -239,15 +242,16 @@ while True:
                         for rect in rect_list:
                             if grabbed[1].colliderect(rect) and rect != grabbed[1]:
                                 
-                                collision_tolerence = 50
+                                collision_tolerance = 100
                             
-                                if abs(rect.right - grabbed[1].left) <= 50:
+                                if abs(rect.right - grabbed[1].left) <= collision_tolerance:
                                     grabbed[1].x = rect.x + 95
                                     break
 
-                                elif abs(rect.left - grabbed[1].right) <= 50:
+                                elif abs(rect.left - grabbed[1].right) <= collision_tolerance:
                                     grabbed[1].x = rect.x - 95
-                                    break
+                                    break       
+                         
 
 
                                 
