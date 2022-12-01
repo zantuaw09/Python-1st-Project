@@ -270,38 +270,6 @@ while True:
 
                 grabbed = []
 
-
-
-                """
-            
-
-            elif book4_rect.collidepoint(event.pos) and clicks[0] is True:
-                difference = mouse_pos[0] - book4_rect.x
-                book4_rect.x = event.pos[0] - difference
-
-                for rect in rect_list:
-                    if book4_rect.colliderect(rect) and rect != book4_rect:
-                        if rect.x < book4_rect.x and book4_rect.x < 525:           # moving LEFT
-                            rect.x = book4_rect.x + 100
-
-                        elif rect.x > book4_rect.x and book4_rect.x > 225:           # moving RIGHT
-                            rect.x = book4_rect.x - 100
-
-
-
-            elif book5_rect.collidepoint(event.pos) and clicks[0] is True:
-                difference = mouse_pos[0] - book5_rect.x
-                book5_rect.x = event.pos[0] - difference
-
-                for rect in rect_list:
-                    if book5_rect.colliderect(rect) and rect != book5_rect:
-                        if rect.x < book5_rect.x and book5_rect.x < 525:           # moving LEFT
-                            rect.x = book5_rect.x + 100
-
-                        elif rect.x > book5_rect.x and book5_rect.x > 225:           # moving RIGHT
-                            rect.x = book5_rect.x - 100
-                """
-
         
         
         for book, rect in zip(book_list, rect_list):
