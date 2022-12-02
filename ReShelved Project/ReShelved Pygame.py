@@ -61,7 +61,28 @@ def sort_calls(shelf):  # USE BUBBLE SORT!
                 in_order[j], in_order[j + 1] = in_order[j + 1], in_order[j]
                  
     return in_order
+
+
+def book_collide():
+    global rect_list
+    global grabbed
     
+    for rect in rect_list:
+        if grabbed[1].colliderect(rect) and rect != grabbed[1]:
+                                
+            collision_tolerance = 100
+                            
+            if abs(rect.right - grabbed[1].left) <= collision_tolerance:
+                grabbed[1].x = rect.x + 95
+                break
+
+            elif abs(rect.left - grabbed[1].right) <= collision_tolerance:
+                grabbed[1].x = rect.x - 95
+                break
+            
+    return grabbed[1].x
+
+
 """
 NOTE: This special Library of Congress call number sorting function was adapted from a bubble sort algorithm.
 It ensures that the first set of numbers sort regularly based on value, but the second set by DECIMAL.
@@ -105,7 +126,7 @@ book5_rect = book5.get_rect(topleft = (605, 125))
 title5 = call_n()
 
 # EXAMPLE call number order listed below to showcase the sort_calls() function:
-# p_order = ['DF 486 RT 9', 'DF 486 RT 562', 'DG 486 RT 880', 'DG 486 RT 99', 'DE 119 RZ 899']
+# p_order = ['DF 486 RT 9', 'DF 486 RT 562', 'DG 486 RT 880', 'DG 50 RT 99', 'DE 119 RZ 899']
 p_order = [title1, title2, title3, title4, title5]
 
 
@@ -116,7 +137,7 @@ call3 = text_font.render(p_order[2], False, 'orange')
 call4 = text_font.render(p_order[3], False, 'green')
 call5 = text_font.render(p_order[4], False, 'purple')
 
-print(sort_calls(p_order))
+answer_list = sort_calls(p_order)
 grabbed = []
 
 
@@ -133,7 +154,8 @@ while True:
 
         book_list = [book1, book2, book3, book4, book5]
         rect_list = [book1_rect, book2_rect, book3_rect, book4_rect, book5_rect]
-        call_list = [call1, call2, call3, call4, call5]
+
+        player_list = [call1, call2, call3, call4, call5]
         
         screen.blit(bg, (0, 0))
         screen.blit(shelf, shelf_rect)
@@ -155,20 +177,9 @@ while True:
                         difference = mouse_pos[0] - grabbed[1].x
                         if difference > 5:
                             grabbed[1].x = event.pos[0] - difference
-                        
-                        for rect in rect_list:
-                            if grabbed[1].colliderect(rect) and rect != grabbed[1]:
-                                
-                                collision_tolerance = 100
-                            
-                                if abs(rect.right - grabbed[1].left) <= collision_tolerance:
-                                    grabbed[1].x = rect.x + 95
-                                    break
 
-                                elif abs(rect.left - grabbed[1].right) <= collision_tolerance:
-                                    grabbed[1].x = rect.x - 95
-                                    break       
-                         
+                        book_collide()
+                        
 
             else:        
                 if book1_rect.collidepoint(event.pos):
@@ -180,18 +191,8 @@ while True:
                             book1_rect.x = event.pos[0] - difference
 
                         grabbed = [book1, book1_rect, call1]
-                        for rect in rect_list:
-                            if grabbed[1].colliderect(rect) and rect != grabbed[1]:
-                                
-                                collision_tolerance = 100
-                            
-                                if abs(rect.right - grabbed[1].left) <= collision_tolerance:
-                                    grabbed[1].x = rect.x + 95
-                                    break
 
-                                elif abs(rect.left - grabbed[1].right) <= collision_tolerance:
-                                    grabbed[1].x = rect.x - 95
-                                    break       
+                        book_collide()   
                          
 
                 elif book2_rect.collidepoint(event.pos):
@@ -203,18 +204,8 @@ while True:
                             book2_rect.x = event.pos[0] - difference
 
                         grabbed = [book2, book2_rect, call2]
-                        for rect in rect_list:
-                            if grabbed[1].colliderect(rect) and rect != grabbed[1]:
-                                
-                                collision_tolerance = 100
-                            
-                                if abs(rect.right - grabbed[1].left) <= collision_tolerance:
-                                    grabbed[1].x = rect.x + 95
-                                    break
 
-                                elif abs(rect.left - grabbed[1].right) <= collision_tolerance:
-                                    grabbed[1].x = rect.x - 95
-                                    break       
+                        book_collide()      
                                
                                 
     
@@ -227,18 +218,8 @@ while True:
                             book3_rect.x = event.pos[0] - difference
 
                         grabbed = [book3, book3_rect, call3]
-                        for rect in rect_list:
-                            if grabbed[1].colliderect(rect) and rect != grabbed[1]:
-                                
-                                collision_tolerance = 100
-                            
-                                if abs(rect.right - grabbed[1].left) <= collision_tolerance:
-                                    grabbed[1].x = rect.x + 95
-                                    break
 
-                                elif abs(rect.left - grabbed[1].right) <= collision_tolerance:
-                                    grabbed[1].x = rect.x - 95
-                                    break       
+                        book_collide()      
                                                        
 
                 elif book4_rect.collidepoint(event.pos):
@@ -250,18 +231,8 @@ while True:
                             book4_rect.x = event.pos[0] - difference
 
                         grabbed = [book4, book4_rect, call4]
-                        for rect in rect_list:
-                            if grabbed[1].colliderect(rect) and rect != grabbed[1]:
-                                
-                                collision_tolerance = 100
-                            
-                                if abs(rect.right - grabbed[1].left) <= collision_tolerance:
-                                    grabbed[1].x = rect.x + 95
-                                    break
 
-                                elif abs(rect.left - grabbed[1].right) <= collision_tolerance:
-                                    grabbed[1].x = rect.x - 95
-                                    break       
+                        book_collide()     
                          
 
 
@@ -274,18 +245,8 @@ while True:
                             book5_rect.x = event.pos[0] - difference
 
                         grabbed = [book5, book5_rect, call5]
-                        for rect in rect_list:
-                            if grabbed[1].colliderect(rect) and rect != grabbed[1]:
-                                
-                                collision_tolerance = 100
-                            
-                                if abs(rect.right - grabbed[1].left) <= collision_tolerance:
-                                    grabbed[1].x = rect.x + 95
-                                    break
 
-                                elif abs(rect.left - grabbed[1].right) <= collision_tolerance:
-                                    grabbed[1].x = rect.x - 95
-                                    break       
+                        book_collide()      
                          
 
 
