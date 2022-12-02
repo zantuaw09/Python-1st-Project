@@ -36,9 +36,38 @@ def call_n():
     num2 = str(random.randint(1,999))
     return let1 + ' ' + num1 + ' ' + let2 + ' ' + num2
 
-    # ***To Do***: MUST MAKE SORTING FUNCTION FOR CALL NUMBERS!!!
 
+def sort_calls(shelf):  # USE BUBBLE SORT!
+    in_order = []
+    for book in shelf:
+        call = book.split(' ')
+        in_order.append(call)
+    in_order.sort()
+    
+    print('currently. . .', in_order)
+    
+    
+    n = len(shelf)
 
+    for i in range(n - 1):
+        for j in range(n - i - 1):
+            current_l = in_order[j][0]
+            current_n = int(in_order[j][1])
+
+            next_l = in_order[j + 1][0]
+            next_n = int(in_order[j + 1][1])
+            
+            if current_l == next_l and current_n > next_n:
+                in_order[j], in_order[j + 1] = in_order[j + 1], in_order[j]
+                 
+    return in_order
+    
+"""
+NOTE: This special Library of Congress call number sorting function was adapted from a bubble sort algorithm.
+It ensures that the first set of numbers sort regularly based on value, but the second set by DECIMAL.
+This means that a book with 'AB 1 CD 100' goes BEFORE 'AB 1 CD 2' since .100 < .2
+To better showcase this, use the EXAMPLE p_order list of call numbers.
+"""
 
 ### SURFACES: ###
 
@@ -75,19 +104,19 @@ book5 = pygame.image.load('graphics/purplebook.png').convert()
 book5_rect = book5.get_rect(topleft = (605, 125))
 title5 = call_n()
 
-
-
-order = [title1, title2, title3, title4, title5]
+# EXAMPLE call number order listed below to showcase the sort_calls() function:
+# p_order = ['DF 486 RT 9', 'DF 486 RT 562', 'DG 486 RT 880', 'DG 486 RT 99', 'DE 119 RZ 899']
+p_order = [title1, title2, title3, title4, title5]
 
 
 text_font = pygame.font.Font('fonts/kongtext.ttf', 30)
-call1 = text_font.render(order[0], False, 'red')
-call2 = text_font.render(order[1], False, 'blue')
-call3 = text_font.render(order[2], False, 'orange')
-call4 = text_font.render(order[3], False, 'green')
-call5 = text_font.render(order[4], False, 'purple')
+call1 = text_font.render(p_order[0], False, 'red')
+call2 = text_font.render(p_order[1], False, 'blue')
+call3 = text_font.render(p_order[2], False, 'orange')
+call4 = text_font.render(p_order[3], False, 'green')
+call5 = text_font.render(p_order[4], False, 'purple')
 
-
+print(sort_calls(p_order))
 grabbed = []
 
 
@@ -262,7 +291,7 @@ while True:
 
                                 
         
-        for rect in rect_list:
+        for i, rect in enumerate(rect_list):
             if event.type == pygame.MOUSEBUTTONUP and rect.collidepoint(mouse_pos) and grabbed != []:
                     
                 if grabbed[1].colliderect(rect) and rect != grabbed[1]:
