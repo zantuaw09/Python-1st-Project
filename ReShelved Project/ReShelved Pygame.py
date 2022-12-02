@@ -44,9 +44,6 @@ def sort_calls(shelf):  # USE BUBBLE SORT!
         in_order.append(call)
     in_order.sort()
     
-    print('currently. . .', in_order)
-    
-    
     n = len(shelf)
 
     for i in range(n - 1):
@@ -59,7 +56,7 @@ def sort_calls(shelf):  # USE BUBBLE SORT!
             
             if current_l == next_l and current_n > next_n:
                 in_order[j], in_order[j + 1] = in_order[j + 1], in_order[j]
-                 
+    print('Answer:', in_order)  
     return in_order
 
 
@@ -81,8 +78,6 @@ def book_collide():
                 break
             
     return grabbed[1].x
-
-
 """
 NOTE: This special Library of Congress call number sorting function was adapted from a bubble sort algorithm.
 It ensures that the first set of numbers sort regularly based on value, but the second set by DECIMAL.
@@ -127,18 +122,22 @@ title5 = call_n()
 
 # EXAMPLE call number order listed below to showcase the sort_calls() function:
 # p_order = ['DF 486 RT 9', 'DF 486 RT 562', 'DG 486 RT 880', 'DG 50 RT 99', 'DE 119 RZ 899']
-p_order = [title1, title2, title3, title4, title5]
+
+start_order = [title1, title2, title3, title4, title5]
 
 
 text_font = pygame.font.Font('fonts/kongtext.ttf', 30)
-call1 = text_font.render(p_order[0], False, 'red')
-call2 = text_font.render(p_order[1], False, 'blue')
-call3 = text_font.render(p_order[2], False, 'orange')
-call4 = text_font.render(p_order[3], False, 'green')
-call5 = text_font.render(p_order[4], False, 'purple')
+call1 = text_font.render(start_order[0], False, 'red')
+call2 = text_font.render(start_order[1], False, 'blue')
+call3 = text_font.render(start_order[2], False, 'orange')
+call4 = text_font.render(start_order[3], False, 'green')
+call5 = text_font.render(start_order[4], False, 'purple')
 
-answer_list = sort_calls(p_order)
+answer_list = sort_calls(start_order)
 grabbed = []
+
+player_list = [title1, title2, title3, title4, title5]
+
 
 
 ### GAMEPLAY LOOP ###
@@ -155,7 +154,6 @@ while True:
         book_list = [book1, book2, book3, book4, book5]
         rect_list = [book1_rect, book2_rect, book3_rect, book4_rect, book5_rect]
 
-        player_list = [call1, call2, call3, call4, call5]
         
         screen.blit(bg, (0, 0))
         screen.blit(shelf, shelf_rect)
@@ -190,7 +188,7 @@ while True:
                         if difference > 5:
                             book1_rect.x = event.pos[0] - difference
 
-                        grabbed = [book1, book1_rect, call1]
+                        grabbed = [book1, book1_rect, call1, player_list.index(title1)]
 
                         book_collide()   
                          
@@ -203,7 +201,7 @@ while True:
                         if difference > 5:
                             book2_rect.x = event.pos[0] - difference
 
-                        grabbed = [book2, book2_rect, call2]
+                        grabbed = [book2, book2_rect, call2, player_list.index(title2)]
 
                         book_collide()      
                                
@@ -217,7 +215,7 @@ while True:
                         if difference > 5:
                             book3_rect.x = event.pos[0] - difference
 
-                        grabbed = [book3, book3_rect, call3]
+                        grabbed = [book3, book3_rect, call3, player_list.index(title3)]
 
                         book_collide()      
                                                        
@@ -230,7 +228,7 @@ while True:
                         if difference > 5:
                             book4_rect.x = event.pos[0] - difference
 
-                        grabbed = [book4, book4_rect, call4]
+                        grabbed = [book4, book4_rect, call4, player_list.index(title4)]
 
                         book_collide()     
                          
@@ -244,7 +242,7 @@ while True:
                         if difference > 5:
                             book5_rect.x = event.pos[0] - difference
 
-                        grabbed = [book5, book5_rect, call5]
+                        grabbed = [book5, book5_rect, call5, player_list.index(title5)]
 
                         book_collide()      
                          
@@ -252,14 +250,23 @@ while True:
 
                                 
         
-        for i, rect in enumerate(rect_list):
+        for call, rect in zip(start_order, rect_list):
             if event.type == pygame.MOUSEBUTTONUP and rect.collidepoint(mouse_pos) and grabbed != []:
-                    
+
                 if grabbed[1].colliderect(rect) and rect != grabbed[1]:
+                    
+                    
                     rect.x, grabbed[1].x = grabbed[1].x, rect.x
 
-                grabbed = []
+                    i = player_list.index(call)
+                    j = grabbed[3]
+                    
+                    player_list[i], player_list[j] = player_list[j], player_list[i]
 
+                    print(player_list)
+
+                grabbed = []
+                
         
         
         for book, rect in zip(book_list, rect_list):
