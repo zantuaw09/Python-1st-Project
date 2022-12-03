@@ -69,6 +69,12 @@ def sort_calls(shelf):  # USE BUBBLE SORT!
         
     print('Answer:', final)  
     return final
+"""
+NOTE: This sort_calls() function that organizes Library of Congress call number was adapted from a bubble sort algorithm.
+It ensures that the first set of numbers sort regularly based on value, but the second set by DECIMAL.
+This means that a book with 'AB 1 CD 100' goes BEFORE 'AB 1 CD 2' since .100 < .2
+To better showcase this, use the EXAMPLE start_order list of call numbers.
+"""
 
 
 def book_collide():
@@ -89,16 +95,9 @@ def book_collide():
                 break
     
     return grabbed[1].x
-"""
-NOTE: This special Library of Congress call number sorting function was adapted from a bubble sort algorithm.
-It ensures that the first set of numbers sort regularly based on value, but the second set by DECIMAL.
-This means that a book with 'AB 1 CD 100' goes BEFORE 'AB 1 CD 2' since .100 < .2
-To better showcase this, use the EXAMPLE start_order list of call numbers.
-"""
+
 
 ### SURFACES: ###
-
-
 
 bg = pygame.Surface((1000, 600))
 bg.fill('white')
@@ -106,8 +105,6 @@ bg.fill('white')
 
 shelf = pygame.image.load('graphics/shelf.png').convert()
 shelf_rect = shelf.get_rect(topleft = (100, 100))
-
-
 
 
 book1 = pygame.image.load('graphics/redbook.png').convert()
@@ -130,12 +127,24 @@ book5 = pygame.image.load('graphics/purplebook.png').convert()
 book5_rect = book5.get_rect(topleft = (605, 125))
 title5 = call_n()
 
+
+
+check = pygame.image.load('graphics/check.png').convert()
+check_rect = check.get_rect(topleft = (825, 200))
+
+checkHover = pygame.image.load('graphics/check_hover.png').convert()
+checkHover_rect = checkHover.get_rect(topleft = (825, 200))
+
+checkPress = pygame.image.load('graphics/check_pressed.png').convert()
+checkPress_rect = checkPress.get_rect(topleft = (825, 200))
+
+
+
 # EXAMPLE call number order and starting player list can be used below to showcase the sort_calls() function:
 #start_order = ['DF 486 RT 9', 'DF 486 RT 562', 'DG 486 RT 880', 'DG 50 RT 99', 'DE 119 RZ 899']
 #title1, title2, title3, title4, title5 = 'DF 486 RT 9', 'DF 486 RT 562', 'DG 486 RT 880', 'DG 50 RT 99', 'DE 119 RZ 899'
 
 start_order = [title1, title2, title3, title4, title5]
-
 
 text_font = pygame.font.Font('fonts/kongtext.ttf', 30)
 call1 = text_font.render(start_order[0], False, 'red')
@@ -144,11 +153,19 @@ call3 = text_font.render(start_order[2], False, 'orange')
 call4 = text_font.render(start_order[3], False, 'green')
 call5 = text_font.render(start_order[4], False, 'purple')
 
+
+
+
+player_list = [title1, title2, title3, title4, title5]
 answer_list = sort_calls(start_order)
 grabbed = []
 
-player_list = [title1, title2, title3, title4, title5]
 
+book_list = [book1, book2, book3, book4, book5]
+rect_list = [book1_rect, book2_rect, book3_rect, book4_rect, book5_rect]
+
+
+game_active = True
 
 ### GAMEPLAY LOOP ###
 
@@ -158,125 +175,122 @@ while True:
     mouse_pos = pygame.mouse.get_pos()
     clicks = pygame.mouse.get_pressed()
 
-    
-    for event in pygame.event.get():
-
-        book_list = [book1, book2, book3, book4, book5]
-        rect_list = [book1_rect, book2_rect, book3_rect, book4_rect, book5_rect]
-
+    if game_active:
         
-        screen.blit(bg, (0, 0))
-        screen.blit(shelf, shelf_rect)
-        
-        
-        if event.type == pygame.QUIT:
-            pygame.quit()
-            exit()
-        
-        if event.type == pygame.MOUSEMOTION:
-
-            if grabbed != []:
-
-                if grabbed[1].collidepoint(event.pos):
-                    screen.blit(grabbed[2], (150, 30))
-
-                    if clicks[0] is True:
+        for event in pygame.event.get():
             
-                        difference = mouse_pos[0] - grabbed[1].x
-                        if difference > 5:
-                            grabbed[1].x = event.pos[0] - difference
+            screen.blit(bg, (0, 0))
+            screen.blit(shelf, shelf_rect)
+            
+            
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                exit()
+            
+            if event.type == pygame.MOUSEMOTION:
 
-                        book_collide()
-                        
+                if grabbed != []:
 
-            else:        
-                if book1_rect.collidepoint(event.pos):
-                    screen.blit(call1, (150, 30))
+                    if grabbed[1].collidepoint(event.pos):
+                        screen.blit(grabbed[2], (150, 30))
 
-                    if clicks[0] is True:
-                        difference = mouse_pos[0] - book1_rect.x
-                        if difference > 5:
-                            book1_rect.x = event.pos[0] - difference
-
-                        grabbed = [book1, book1_rect, call1, player_list.index(title1)]
-
-                        book_collide()   
-                         
-
-                elif book2_rect.collidepoint(event.pos):
-                    screen.blit(call2, (150, 30))
-                    
-                    if clicks[0] is True:
-                        difference = mouse_pos[0] - book2_rect.x
-                        if difference > 5:
-                            book2_rect.x = event.pos[0] - difference
-
-                        grabbed = [book2, book2_rect, call2, player_list.index(title2)]
-
-                        book_collide()      
-                               
-                                
-    
-                elif book3_rect.collidepoint(event.pos):
-                    screen.blit(call3, (150, 30))
-
-                    if clicks[0] is True:
-                        difference = mouse_pos[0] - book3_rect.x
-                        if difference > 5:
-                            book3_rect.x = event.pos[0] - difference
-
-                        grabbed = [book3, book3_rect, call3, player_list.index(title3)]
-
-                        book_collide()      
-                                                       
-
-                elif book4_rect.collidepoint(event.pos):
-                    screen.blit(call4, (150, 30))
-
-                    if clicks[0] is True:
-                        difference = mouse_pos[0] - book4_rect.x
-                        if difference > 5:
-                            book4_rect.x = event.pos[0] - difference
-
-                        grabbed = [book4, book4_rect, call4, player_list.index(title4)]
-
-                        book_collide()     
-                         
-
-
-                elif book5_rect.collidepoint(event.pos):
-                    screen.blit(call5, (150, 30))
-
-                    if clicks[0] is True:
-                        difference = mouse_pos[0] - book5_rect.x
-                        if difference > 5:
-                            book5_rect.x = event.pos[0] - difference
-
-                        grabbed = [book5, book5_rect, call5, player_list.index(title5)]
-
-                        book_collide()      
-                         
-
-
-                                
-        
-        for call, rect in zip(start_order, rect_list):
-            if event.type == pygame.MOUSEBUTTONUP and rect.collidepoint(mouse_pos) and grabbed != []:
-
-                if grabbed[1].colliderect(rect) and rect != grabbed[1]:
-                    
-                    
-                    rect.x, grabbed[1].x = grabbed[1].x, rect.x
-
-                    i = player_list.index(call)
-                    j = grabbed[3]
-                    
-                    player_list[i], player_list[j] = player_list[j], player_list[i]
-
-                    print(player_list)
-
-                grabbed = []
+                        if clicks[0] is True:
                 
+                            difference = mouse_pos[0] - grabbed[1].x
+                            if difference > 5:
+                                grabbed[1].x = event.pos[0] - difference
+
+                            book_collide()
+                            
+
+                else:        
+                    if book1_rect.collidepoint(event.pos):
+                        screen.blit(call1, (150, 30))
+
+                        if clicks[0] is True:
+                            difference = mouse_pos[0] - book1_rect.x
+                            if difference > 5:
+                                book1_rect.x = event.pos[0] - difference
+
+                            grabbed = [book1, book1_rect, call1, player_list.index(title1)]
+
+                            book_collide()   
+                             
+
+                    elif book2_rect.collidepoint(event.pos):
+                        screen.blit(call2, (150, 30))
+                        
+                        if clicks[0] is True:
+                            difference = mouse_pos[0] - book2_rect.x
+                            if difference > 5:
+                                book2_rect.x = event.pos[0] - difference
+
+                            grabbed = [book2, book2_rect, call2, player_list.index(title2)]
+
+                            book_collide()      
+                                   
+                                    
+        
+                    elif book3_rect.collidepoint(event.pos):
+                        screen.blit(call3, (150, 30))
+
+                        if clicks[0] is True:
+                            difference = mouse_pos[0] - book3_rect.x
+                            if difference > 5:
+                                book3_rect.x = event.pos[0] - difference
+
+                            grabbed = [book3, book3_rect, call3, player_list.index(title3)]
+
+                            book_collide()      
+                                                           
+
+                    elif book4_rect.collidepoint(event.pos):
+                        screen.blit(call4, (150, 30))
+
+                        if clicks[0] is True:
+                            difference = mouse_pos[0] - book4_rect.x
+                            if difference > 5:
+                                book4_rect.x = event.pos[0] - difference
+
+                            grabbed = [book4, book4_rect, call4, player_list.index(title4)]
+
+                            book_collide()     
+                             
+
+
+                    elif book5_rect.collidepoint(event.pos):
+                        screen.blit(call5, (150, 30))
+
+                        if clicks[0] is True:
+                            difference = mouse_pos[0] - book5_rect.x
+                            if difference > 5:
+                                book5_rect.x = event.pos[0] - difference
+
+                            grabbed = [book5, book5_rect, call5, player_list.index(title5)]
+
+                            book_collide()      
+                             
+
+
+                                    
+            
+            for call, rect in zip(start_order, rect_list):
+                if event.type == pygame.MOUSEBUTTONUP and rect.collidepoint(mouse_pos) and grabbed != []:
+
+                    if grabbed[1].colliderect(rect) and rect != grabbed[1]:
+                        
+                        
+                        rect.x, grabbed[1].x = grabbed[1].x, rect.x
+
+                        i = player_list.index(call)
+                        j = grabbed[3]
+                        
+                        player_list[i], player_list[j] = player_list[j], player_list[i]
+
+                        print(player_list)
+
+                    grabbed = []
+                    
         
         
         for book, rect in zip(book_list, rect_list):
@@ -292,8 +306,20 @@ while True:
             screen.blit(grabbed[0], grabbed[1])
              
 
-    
+        screen.blit(check, check_rect)
 
+        if check_rect.collidepoint(mouse_pos):
+            screen.blit(checkHover, checkHover_rect)
+
+            if clicks[0] is True:
+                screen.blit(checkPress, checkPress_rect)
+
+            if event.type == pygame.MOUSEBUTTONUP and check_rect.collidepoint(mouse_pos):
+                game_active = False
+
+    else:
+        screen.fill('green')
+        
     pygame.display.update()
     clock.tick(60)
 
