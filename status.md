@@ -10,7 +10,7 @@ Zhengkang Fan
 
 #### Project title
 
-ReShelved - Fast-Paced Book Sorting
+ReShelved - Book Speed Sorting
 
 ***
 
