@@ -10,7 +10,7 @@ Zhengkang Fan
 
 #### Project title
 
-ReShelved - Book Sorting Game
+ReShelved - Fast-Paced Book Sorting
 
 ***
 
