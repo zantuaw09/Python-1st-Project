@@ -15,4 +15,10 @@ To solve the visual glitch, I had to create a seperate list that marked whether 
 This design choice also came in handy to easily implement a couple other features in my game, such as switching the position of a grabbed book and an adjacent one if the player lets go of the grabbed book as it collides with another book, which I found to be a much more consistent way of moving the book sprites around compared to my original idea of automatically correcting a book's desired position. Through these experiences of working around strange and alien-like problems, I learned that being flexible and creative with my code could actually lead to solutions that are much easier to implement than what I had initially planned and fix a variety of unexpected obstacles along the way! 
 
 
-Even with no prior skills in making games with Python, I've been able to further a lot of my general coding skills and the problem-solving process 
+Even with no prior skills in making games with Python, I've been able to further a lot of my general coding skills and the problem-solving process I use to try to bring my concepts to life in my program.
+I. . .
+- Make things neater (used my own functions more)
+- Check for problems systematically
+- Predict issues in advance
+
+Plus, I was able to get familiar with a bunch of cool modules that can easily create other kinds of games I'm interesting in thanks the tutorials that have taught me pygame! The process of making games as a whole was actually really fun; I particularly enjoyed making my own custom art for the sprites and playing around with the "physics" I made for the game to see what sliding motions of the books felt the most fluid. I would love to make more games in the future to just to get the chance to personalize my program like this, and really valued this project as a chance to explore this specific medium of game development through a language I have just learned from this class!
