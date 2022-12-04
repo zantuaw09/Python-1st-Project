@@ -6,13 +6,6 @@ import pygame
 from sys import exit
 
 
-class Book(pygame.sprite.Sprite):
-    def __init__(self, picture_path):
-        super().__init__()
-        self.image = pygame.image.load(picture_path)
-        self.rect = self.image.get_rect()
-
-
 pygame.init()
 screen = pygame.display.set_mode([1000, 600])
 pygame.display.set_caption("ReShelved")
@@ -20,7 +13,7 @@ pygame.display.set_caption("ReShelved")
 clock = pygame.time.Clock()
 
 
-### FUNCTIONS OF THE GAME: ###
+### FUNCTIONS USED IN THE GAME: ###
 
 def r_letter():
     alphabet = list(string.ascii_uppercase)
@@ -147,7 +140,10 @@ checkPress_rect = checkPress.get_rect(topleft = (825, 200))
 start_order = [title1, title2, title3, title4, title5]
 color_order = ['red', 'blue', 'orange', 'green', 'purple']
 
+
+
 text_font = pygame.font.Font('fonts/kongtext.ttf', 30)
+
 call1 = text_font.render(start_order[0], False, 'red')
 call2 = text_font.render(start_order[1], False, 'blue')
 call3 = text_font.render(start_order[2], False, 'orange')
@@ -167,6 +163,9 @@ rect_list = [book1_rect, book2_rect, book3_rect, book4_rect, book5_rect]
 
 
 game_active = True
+
+
+
 
 ### GAMEPLAY LOOP ###
 
