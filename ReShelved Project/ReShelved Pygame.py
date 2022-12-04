@@ -37,7 +37,7 @@ def call_n():
     return let1 + ' ' + num1 + ' ' + let2 + ' ' + num2
 
 
-def sort_calls(shelf):  # USE BUBBLE SORT!
+def sort_calls(shelf):  # USES BUBBLE SORT!
     in_order = []
     for book in shelf:
         call = book.split(' ')
@@ -145,6 +145,7 @@ checkPress_rect = checkPress.get_rect(topleft = (825, 200))
 #title1, title2, title3, title4, title5 = 'DF 486 RT 9', 'DF 486 RT 562', 'DG 486 RT 880', 'DG 50 RT 99', 'DE 119 RZ 899'
 
 start_order = [title1, title2, title3, title4, title5]
+color_order = ['red', 'blue', 'orange', 'green', 'purple']
 
 text_font = pygame.font.Font('fonts/kongtext.ttf', 30)
 call1 = text_font.render(start_order[0], False, 'red')
@@ -153,7 +154,7 @@ call3 = text_font.render(start_order[2], False, 'orange')
 call4 = text_font.render(start_order[3], False, 'green')
 call5 = text_font.render(start_order[4], False, 'purple')
 
-
+score_font = pygame.font.Font('fonts/kongtext.ttf', 50)
 
 
 player_list = [title1, title2, title3, title4, title5]
@@ -175,13 +176,14 @@ while True:
     mouse_pos = pygame.mouse.get_pos()
     clicks = pygame.mouse.get_pressed()
 
+    screen.blit(bg, (0, 0))
+    screen.blit(shelf, shelf_rect)
+
     if game_active:
+
         
         for event in pygame.event.get():
-            
-            screen.blit(bg, (0, 0))
-            screen.blit(shelf, shelf_rect)
-            
+                        
             
             if event.type == pygame.QUIT:
                 pygame.quit()
@@ -189,10 +191,11 @@ while True:
             
             if event.type == pygame.MOUSEMOTION:
 
+
+                # Prioritize mouse movement of book currently "grabbed"
                 if grabbed != []:
 
                     if grabbed[1].collidepoint(event.pos):
-                        screen.blit(grabbed[2], (150, 30))
 
                         if clicks[0] is True:
                 
@@ -202,10 +205,9 @@ while True:
 
                             book_collide()
                             
-
+                # Check each book for movement of a new "grabbed" object
                 else:        
                     if book1_rect.collidepoint(event.pos):
-                        screen.blit(call1, (150, 30))
 
                         if clicks[0] is True:
                             difference = mouse_pos[0] - book1_rect.x
@@ -218,7 +220,6 @@ while True:
                              
 
                     elif book2_rect.collidepoint(event.pos):
-                        screen.blit(call2, (150, 30))
                         
                         if clicks[0] is True:
                             difference = mouse_pos[0] - book2_rect.x
@@ -232,7 +233,6 @@ while True:
                                     
         
                     elif book3_rect.collidepoint(event.pos):
-                        screen.blit(call3, (150, 30))
 
                         if clicks[0] is True:
                             difference = mouse_pos[0] - book3_rect.x
@@ -245,7 +245,6 @@ while True:
                                                            
 
                     elif book4_rect.collidepoint(event.pos):
-                        screen.blit(call4, (150, 30))
 
                         if clicks[0] is True:
                             difference = mouse_pos[0] - book4_rect.x
@@ -259,8 +258,7 @@ while True:
 
 
                     elif book5_rect.collidepoint(event.pos):
-                        screen.blit(call5, (150, 30))
-
+                        
                         if clicks[0] is True:
                             difference = mouse_pos[0] - book5_rect.x
                             if difference > 5:
@@ -273,7 +271,7 @@ while True:
 
 
                                     
-            
+            # Results of book collision (switches rectangle position and order of "player_list")
             for call, rect in zip(start_order, rect_list):
                 if event.type == pygame.MOUSEBUTTONUP and rect.collidepoint(mouse_pos) and grabbed != []:
 
@@ -287,12 +285,17 @@ while True:
                         
                         player_list[i], player_list[j] = player_list[j], player_list[i]
 
-                        print(player_list)
-
                     grabbed = []
                     
-        
-        
+
+        # Display call numbers
+        for rect, number, color in zip(rect_list, start_order, color_order):
+            if rect.collidepoint(mouse_pos):
+                call = text_font.render(number, True, color)
+                screen.blit(call, (150, 30))
+                break
+
+        # Create shelf boundaries and display books
         for book, rect in zip(book_list, rect_list):
             if rect.left < 125:
                 rect.left = 125
@@ -306,6 +309,8 @@ while True:
             screen.blit(grabbed[0], grabbed[1])
              
 
+
+        # Button to submit answers
         screen.blit(check, check_rect)
 
         if check_rect.collidepoint(mouse_pos):
@@ -317,8 +322,51 @@ while True:
             if event.type == pygame.MOUSEBUTTONUP and check_rect.collidepoint(mouse_pos):
                 game_active = False
 
+
+
+
+
+    ### RESULTS PAGE ###
+                
     else:
-        screen.fill('green')
+
+        for book, rect in zip(book_list, rect_list):
+            screen.blit(book, rect)
+
+        
+        # Calculate and display score
+        correct = pygame.image.load('graphics/correct.png').convert()
+        incorrect = pygame.image.load('graphics/incorrect.png').convert()
+
+        score = 0
+        x = 150
+        
+        for i in range(len(player_list)):
+            if player_list[i] == answer_list[i]:
+                score += 1
+                screen.blit(correct, (x, 525))
+
+            else:
+                screen.blit(incorrect, (x, 525))
+            x += 125
+
+        results = score_font.render(str(score) + '/5', False, 'black')
+        screen.blit(results, (800, 200))
+
+
+        # Display call numbers
+        for rect, number, color in zip(rect_list, start_order, color_order):
+            if rect.collidepoint(mouse_pos):
+                call = text_font.render(number, True, color)
+                screen.blit(call, (150, 30))
+                break
+
+
+        for event in pygame.event.get():
+                        
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                exit()
         
     pygame.display.update()
     clock.tick(60)
