@@ -134,8 +134,9 @@ checkPress_rect = checkPress.get_rect(topleft = (825, 200))
 
 
 # EXAMPLE call number order and starting player list can be used below to showcase the sort_calls() function:
-#start_order = ['DF 486 RT 9', 'DF 486 RT 562', 'DG 486 RT 880', 'DG 50 RT 99', 'DE 119 RZ 899']
-#title1, title2, title3, title4, title5 = 'DF 486 RT 9', 'DF 486 RT 562', 'DG 486 RT 880', 'DG 50 RT 99', 'DE 119 RZ 899'
+#start_order = ['DE 119 RZ 899', 'DF 486 RT 9', 'DF 486 RT 562', 'DG 486 RT 880', 'DG 50 RT 99']
+#title1, title2, title3, title4, title5 = 'DE 119 RZ 899', 'DF 486 RT 9', 'DF 486 RT 562', 'DG 486 RT 880', 'DG 50 RT 99'
+
 
 start_order = [title1, title2, title3, title4, title5]
 color_order = ['red', 'blue', 'orange', 'green', 'purple']
@@ -283,7 +284,7 @@ while True:
                         j = grabbed[3]
                         
                         player_list[i], player_list[j] = player_list[j], player_list[i]
-
+                        print(player_list)
                     grabbed = []
                     
 
