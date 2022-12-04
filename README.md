@@ -4,8 +4,7 @@
 
 Working on this game through Python was actually very fulfilling, as I could combine/test my general programming knowledge of the language along with learn to experiment with a bunch of new kinds of code of new thanks to the features brought by the Pygame library.
 
-Naturally, designing a video game as my first project had me run into a ***lot*** of new problems that seemed to come out of nowhere -- a staple in game development.
-
+Naturally, designing a video game as my first project had me run into a ***lot*** of new challenges that seemed to come out of nowhere -- a staple in game development.
 
 The greatest struggles I faced throughout this project was with the system of graphics that pygame uses, which I had no experience in and had intended to have my book images be easy to move around as well as clearly visualize what order a given list of call numbers was in. Since the position of any surface is normally static, they can more easily be adjusted by placing *rectangles* over the surface and moving them around specific points on it. I spent a good period of the project timeframe just tinkering around with my book graphics' rectangles trying to find an intuitive way of moving the books around and would constantly run into different roadblocks involving these rectangles, often causing me to change how I wanted the primary gameplay to work. 
 
@@ -13,4 +12,7 @@ Initially, I planned for any given book that the player interacted with to be ab
 
 To solve the visual glitch, I had to create a seperate list that marked whether a book was currently being interacted with by the mouse, and ensure that this book was loaded onto the screen **after** all the others. At the same time, making a seperate "grabbed" variable actually solved my overlap problem when moving a book, as I could now write an if statement that *first* checks if a grabbed book was still being interacted and continue moving that book, only using the predetermined list of books if no book was currrently being grabbed. 
 
-This design choice also came in handy to easily implement a couple other features in my game, such as switching the position of a grabbed book and an adjacent one if the player lets go of the grabbed book as it collides with another book, which I found to be a much more consistent way of moving the book sprites around compared to my original idea that would have taken too much time to implement. Through this kind of problem-solving, I learned that being flexible and creative with my coding designs could actually lead to solutions that work a lot more seamlessly than what I had initially planned and fix a variety of unexpected problems along the way!
+This design choice also came in handy to easily implement a couple other features in my game, such as switching the position of a grabbed book and an adjacent one if the player lets go of the grabbed book as it collides with another book, which I found to be a much more consistent way of moving the book sprites around compared to my original idea of automatically correcting a book's desired position. Through these experiences of working around strange and alien-like problems, I learned that being flexible and creative with my code could actually lead to solutions that are much easier to implement than what I had initially planned and fix a variety of unexpected obstacles along the way! 
+
+
+Even with no prior skills in making games with Python, I've been able to further a lot of my general coding skills and the problem-solving process 
