@@ -304,7 +304,6 @@ while True:
                         j = grabbed[3]
                         
                         player_list[i], player_list[j] = player_list[j], player_list[i]
-                        print(player_list)
                     grabbed = []
                     
 
