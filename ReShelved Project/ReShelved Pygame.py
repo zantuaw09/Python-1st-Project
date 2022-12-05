@@ -21,9 +21,15 @@ def r_letter():
     return alphabet[i]
     
 
-def call_n():
-
+def easy_call_n():
     let1 = r_letter() + r_letter()
+    num1 = str(random.randint(1,999))
+    let2 = r_letter() + r_letter()
+    num2 = str(random.randint(1,999))
+    return let1 + ' ' + num1 + ' ' + let2 + ' ' + num2
+
+def call_n(first_l):
+    let1 = first_l + r_letter()
     num1 = str(random.randint(1,999))
     let2 = r_letter() + r_letter()
     num2 = str(random.randint(1,999))
@@ -59,8 +65,7 @@ def sort_calls(shelf):  # USES BUBBLE SORT!
 
         item = item.strip()
         final.append(item)
-        
-    print('Answer:', final)  
+    print('Answer:', final)
     return final
 """
 NOTE: This sort_calls() function that organizes Library of Congress call number was adapted from a bubble sort algorithm.
@@ -102,23 +107,19 @@ shelf_rect = shelf.get_rect(topleft = (100, 100))
 
 book1 = pygame.image.load('graphics/redbook.png').convert()
 book1_rect = book1.get_rect(topleft = (125, 125))
-title1 = call_n()
 
 book2 = pygame.image.load('graphics/bluebook.png').convert()
 book2_rect = book2.get_rect(topleft = (245, 125))
-title2 = call_n()
 
 book3 = pygame.image.load('graphics/orangebook.png').convert()
 book3_rect = book3.get_rect(topleft = (365, 125))
-title3 = call_n()
 
 book4 = pygame.image.load('graphics/greenbook.png').convert()
 book4_rect = book4.get_rect(topleft = (485, 125))
-title4 = call_n()
 
 book5 = pygame.image.load('graphics/purplebook.png').convert()
 book5_rect = book5.get_rect(topleft = (605, 125))
-title5 = call_n()
+
 
 
 
@@ -140,24 +141,13 @@ checkPress_rect = checkPress.get_rect(topleft = (825, 200))
 #start_order = ['TF 33 TJ 456', 'TE 34 TI 43', 'TF 4 TT 444', 'TE 34 TI 333', 'TF 33 TJ 5']
 #title1, title2, title3, title4, title5 = 'TF 33 TJ 456', 'TE 34 TI 43', 'TF 4 TT 444', 'TE 34 TI 333', 'TF 33 TJ 5'
 
-start_order = [title1, title2, title3, title4, title5]
-color_order = ['red', 'blue', 'orange', 'green', 'purple']
-
 
 
 text_font = pygame.font.Font('fonts/kongtext.ttf', 30)
-
-call1 = text_font.render(start_order[0], False, 'red')
-call2 = text_font.render(start_order[1], False, 'blue')
-call3 = text_font.render(start_order[2], False, 'orange')
-call4 = text_font.render(start_order[3], False, 'green')
-call5 = text_font.render(start_order[4], False, 'purple')
-
 score_font = pygame.font.Font('fonts/kongtext.ttf', 50)
 
 
-player_list = [title1, title2, title3, title4, title5]
-answer_list = sort_calls(start_order)
+#player_list = [title1, title2, title3, title4, title5]
 grabbed = []
 
 
@@ -166,8 +156,7 @@ rect_list = [book1_rect, book2_rect, book3_rect, book4_rect, book5_rect]
 
 
 game_active = True
-
-
+new_game = True
 
 
 ### GAMEPLAY LOOP ###
@@ -181,9 +170,33 @@ while True:
     screen.blit(bg, (0, 0))
     screen.blit(shelf, shelf_rect)
 
-    if game_active:
 
+    if new_game:
+        gen_line = r_letter()
+        title1 = call_n(gen_line)
+        title2 = call_n(gen_line)
+        title3 = call_n(gen_line)
+        title4 = call_n(gen_line)
+        title5 = call_n(gen_line)
+
+        start_order = [title1, title2, title3, title4, title5]
+        color_order = ['red', 'blue', 'orange', 'green', 'purple']
+
+        call1 = text_font.render(start_order[0], False, 'red')
+        call2 = text_font.render(start_order[1], False, 'blue')
+        call3 = text_font.render(start_order[2], False, 'orange')
+        call4 = text_font.render(start_order[3], False, 'green')
+        call5 = text_font.render(start_order[4], False, 'purple')
+
+        player_list = [title1, title2, title3, title4, title5]
+        answer_list = sort_calls(start_order)
+
+        new_game = False
+
+    
+    if game_active:
         
+            
         for event in pygame.event.get():
                         
             
@@ -331,7 +344,7 @@ while True:
     ### RESULTS PAGE ###
                 
     else:
-
+        new_game = False
         for book, rect in zip(book_list, rect_list):
             screen.blit(book, rect)
 
@@ -364,6 +377,28 @@ while True:
                 break
 
 
+        # Replay button
+        replay = pygame.image.load('graphics/replay.png').convert()
+        replay_rect = replay.get_rect(topleft = (825, 300))
+
+        replayHover = pygame.image.load('graphics/replay_hover.png').convert()
+        replayHover_rect = checkHover.get_rect(topleft = (825, 300))
+
+        replayPress = pygame.image.load('graphics/replay_pressed.png').convert()
+        replayPress_rect = checkPress.get_rect(topleft = (825, 300))
+
+        screen.blit(replay, replay_rect)
+        if replay_rect.collidepoint(mouse_pos):
+            screen.blit(replayHover, replayHover_rect)
+
+            if clicks[0] is True:
+                screen.blit(replayPress, replayPress_rect)
+
+            if replay_rect.collidepoint(mouse_pos) and clicks[0] is True:
+                new_game = True
+                game_active = True
+
+        
         for event in pygame.event.get():
                         
             if event.type == pygame.QUIT:
