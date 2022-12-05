@@ -132,16 +132,6 @@ checkPress = pygame.image.load('graphics/check_pressed.png').convert()
 checkPress_rect = checkPress.get_rect(topleft = (825, 200))
 
 
-
-"""EXAMPLE call number order and starting player list can be used below to showcase the sort_calls() function:"""
-#start_order = ['DE 119 RZ 899', 'DF 486 RT 9', 'DF 486 RT 562', 'DG 486 RT 880', 'DG 50 RT 99']
-#title1, title2, title3, title4, title5 = 'DE 119 RZ 899', 'DF 486 RT 9', 'DF 486 RT 562', 'DG 486 RT 880', 'DG 50 RT 99'
-
-#start_order = ['TF 33 TJ 456', 'TE 34 TI 43', 'TF 4 TT 444', 'TE 34 TI 333', 'TF 33 TJ 5']
-#title1, title2, title3, title4, title5 = 'TF 33 TJ 456', 'TE 34 TI 43', 'TF 4 TT 444', 'TE 34 TI 333', 'TF 33 TJ 5'
-
-
-
 text_font = pygame.font.Font('fonts/kongtext.ttf', 30)
 score_font = pygame.font.Font('fonts/kongtext.ttf', 50)
 
@@ -183,6 +173,17 @@ while True:
         title3 = call_n(gen_line)
         title4 = call_n(gen_line)
         title5 = call_n(gen_line)
+
+
+
+        """EXAMPLE call number order and starting player list can be used below to showcase the sort_calls() function:"""
+        #start_order = ['DE 119 RZ 899', 'DF 486 RT 9', 'DF 486 RT 562', 'DG 486 RT 880', 'DG 50 RT 99']
+        #title1, title2, title3, title4, title5 = 'DE 119 RZ 899', 'DF 486 RT 9', 'DF 486 RT 562', 'DG 486 RT 880', 'DG 50 RT 99'
+
+        #start_order = ['TF 33 TJ 456', 'TE 34 TI 43', 'TF 4 TT 444', 'TE 34 TI 333', 'TF 33 TJ 5']
+        #title1, title2, title3, title4, title5 = 'TF 33 TJ 456', 'TE 34 TI 43', 'TF 4 TT 444', 'TE 34 TI 333', 'TF 33 TJ 5'
+
+
 
         start_order = [title1, title2, title3, title4, title5]
         color_order = ['red', 'blue', 'orange', 'green', 'purple']
