@@ -2,6 +2,12 @@
 
 # A Summary of ReShelved - My Book Sorting Game
 
+
+So I currently work at Charles Library, and I've found that a lot of people can't fully wrap their head around (including me) how the library call number system works. Even for me -- who regularly organizes books -- can accidently place books in the wrong order because for some reason the first set of numbers on a book is in standard numerical order, but the **second** set is based by ***decimal*** (refer to this link to see a full explanation of the Library of Congress system: https://www.angelo.edu/library/handouts/lcnumber.php). 
+
+So, when thinking about projects for this course, I was inspired by typing accuracy tests and other basic educational games and wanted to make one of my own that could teach people the basics of reading call numbers. From this, RESHELVED was born!
+
+
 Working on this game through Python was actually very fulfilling, as I could combine/test my general programming knowledge of the language along with learn to experiment with a bunch of new kinds of code of new thanks to the features brought by the Pygame library.
 
 Naturally, designing a video game as my first project had me run into a ***lot*** of new challenges that seemed to come out of nowhere -- a staple in game development.
