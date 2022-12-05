@@ -66,7 +66,7 @@ def sort_calls(shelf):  # USES BUBBLE SORT!
 NOTE: This sort_calls() function that organizes Library of Congress call number was adapted from a bubble sort algorithm.
 It ensures that the first set of numbers sort regularly based on value, but the second set by DECIMAL.
 This means that a book with 'AB 1 CD 100' goes BEFORE 'AB 1 CD 2' since .100 < .2
-To better showcase this, use the EXAMPLE start_order list of call numbers.
+To better showcase this, use some of the EXAMPLE start_order list of call numbers.
 """
 
 
@@ -133,7 +133,7 @@ checkPress_rect = checkPress.get_rect(topleft = (825, 200))
 
 
 
-# EXAMPLE call number order and starting player list can be used below to showcase the sort_calls() function:
+"""EXAMPLE call number order and starting player list can be used below to showcase the sort_calls() function:"""
 #start_order = ['DE 119 RZ 899', 'DF 486 RT 9', 'DF 486 RT 562', 'DG 486 RT 880', 'DG 50 RT 99']
 #title1, title2, title3, title4, title5 = 'DE 119 RZ 899', 'DF 486 RT 9', 'DF 486 RT 562', 'DG 486 RT 880', 'DG 50 RT 99'
 
