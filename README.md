@@ -1,5 +1,7 @@
 ### *DON'T FORGET to check out* ***ReShelved Overview Video.mp4*** ###
 
+# PLAY THE GAME in *ReShelved Project* folder!!
+
 # A Summary of ReShelved - My Book Sorting Game
 # Wyatt Zantua - Freshman CS Major in CIS 1051
 
