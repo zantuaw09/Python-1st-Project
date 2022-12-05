@@ -137,6 +137,8 @@ checkPress_rect = checkPress.get_rect(topleft = (825, 200))
 #start_order = ['DE 119 RZ 899', 'DF 486 RT 9', 'DF 486 RT 562', 'DG 486 RT 880', 'DG 50 RT 99']
 #title1, title2, title3, title4, title5 = 'DE 119 RZ 899', 'DF 486 RT 9', 'DF 486 RT 562', 'DG 486 RT 880', 'DG 50 RT 99'
 
+#start_order = ['TF 33 TJ 456', 'TE 34 TI 43', 'TF 4 TT 444', 'TE 34 TI 333', 'TF 33 TJ 5']
+#title1, title2, title3, title4, title5 = 'TF 33 TJ 456', 'TE 34 TI 43', 'TF 4 TT 444', 'TE 34 TI 333', 'TF 33 TJ 5'
 
 start_order = [title1, title2, title3, title4, title5]
 color_order = ['red', 'blue', 'orange', 'green', 'purple']
