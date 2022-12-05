@@ -65,7 +65,6 @@ def sort_calls(shelf):  # USES BUBBLE SORT!
 
         item = item.strip()
         final.append(item)
-    print('Answer:', final)
     return final
 """
 NOTE: This sort_calls() function that organizes Library of Congress call number was adapted from a bubble sort algorithm.
@@ -172,6 +171,12 @@ while True:
 
 
     if new_game:
+
+        x = 125
+        for rect in rect_list:
+            rect.x = x
+            x += 120
+        
         gen_line = r_letter()
         title1 = call_n(gen_line)
         title2 = call_n(gen_line)
