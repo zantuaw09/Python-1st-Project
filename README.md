@@ -1,3 +1,5 @@
+### CHECK OUT MY OVERVIEW VIDEO ###
+
 # A Summary of ReShelved - My Book Sorting Game
 # Wyatt Zantua - Freshman CS Major in CIS 1051
 
