@@ -1,6 +1,6 @@
-
-# ReShelved - Book Sorting Game
 # This is Wyatt Zantua's 1st Python project!
+
+# A Summary of ReShelved - My Book Sorting Game
 
 Working on this game through Python was actually very fulfilling, as I could combine/test my general programming knowledge of the language along with learn to experiment with a bunch of new kinds of code of new thanks to the features brought by the Pygame library.
 
@@ -15,9 +15,9 @@ To solve the visual glitch, I had to create a seperate list that marked whether 
 This design choice also came in handy to easily implement a couple other features in my game, such as switching the position of a grabbed book and an adjacent one if the player lets go of the grabbed book as it collides with another book, which I found to be a much more consistent way of moving the book sprites around compared to my original idea of automatically correcting a book's desired position. Through these experiences of working around strange and alien-like problems, I learned that being flexible and creative with my code could actually lead to solutions that are much easier to implement than what I had initially planned and fix a variety of unexpected obstacles along the way! 
 
 
-Even with no prior skills in making games with Python, I've been able to further a lot of my general coding skills and the problem-solving process I use to try to bring my concepts to life in my program.
+Even with no prior skills in making games with Python, I've been able to further a lot of my general coding skills and the problem-solving process I use to try to bring my concepts to life in my program. Throughout the past few weeks of development as I went through many alterations of my book-moving mechanic, I constantly revisted previous code with a newfound perspective and would end up adding new variables or editing out redundant lines. As my overall program became much bigger, I strived to make a habit of labeling different sections of my code with what they did and organizing chunks of code carefully so that future editing wouldn't become needlessly complex. Making my own fuctions played a big part in this, and I hope that I can help clean up my program a lot more in the future by replacing patterned lines of code with functions.
+
 I. . .
-- Make things neater (used my own functions more)
 - Check for problems systematically
 - Predict issues in advance
 
