@@ -1,6 +1,5 @@
-# This is Wyatt Zantua's 1st Python project!
-
 # A Summary of ReShelved - My Book Sorting Game
+# Wyatt Zantua - Freshman CS Major in CIS 1051
 
 
 So I currently work at Charles Library, and I've found that a lot of people can't fully wrap their head around (including me) how the library call number system works. Even for me -- who regularly organizes books -- can accidently place books in the wrong order because for some reason the first set of numbers on a book is in standard numerical order, but the **second** set is based by ***decimal*** (refer to this link to see a full explanation of the Library of Congress system: https://www.angelo.edu/library/handouts/lcnumber.php). 
