@@ -6,3 +6,5 @@ In order to run this program, the free online library called "Pygame" must be in
 https://www.pygame.org/download.shtml
 
 A Python compiler software is also needed to run this program. More detailed information instructing the uses of this program will be added as the game is updated.
+
+The file itself containign the game is under the folder "Pygame
