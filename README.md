@@ -1,6 +1,6 @@
 # README
 
-This project is a graphic-based Python program that involves sorting different library books via their distinct call numbers.
+This project is a graphic-based Python program that involves sorting different library books via their distinct call numbers. The project was developed over the course of 4 weeks for Temple's Introduction to Python course (CIS 1051).
 
 In order to run this program, the free online library called "Pygame" must be installed. Click below to learn more and download the most recent package (1.9.6) using pip install:
 https://www.pygame.org/download.shtml
