@@ -13,6 +13,11 @@ pygame.display.set_caption("ReShelved")
 clock = pygame.time.Clock()
 
 
+class Book:
+    def __init__(self, call, firstLetter):
+        self.call = createCall(firstLetter)
+
+
 ### FUNCTIONS USED IN THE GAME: ###
 
 def r_letter():
@@ -28,7 +33,7 @@ def easy_call_n():
     num2 = str(random.randint(1,999))
     return let1 + ' ' + num1 + ' ' + let2 + ' ' + num2
 
-def call_n(first_l):
+def createCall(first_l):
     let1 = first_l + r_letter()
     num1 = str(random.randint(1,999))
     let2 = r_letter() + r_letter()
@@ -168,11 +173,11 @@ while True:
             x += 120
         
         gen_line = r_letter()
-        title1 = call_n(gen_line)
-        title2 = call_n(gen_line)
-        title3 = call_n(gen_line)
-        title4 = call_n(gen_line)
-        title5 = call_n(gen_line)
+        title1 = createCall(gen_line)
+        title2 = createCall(gen_line)
+        title3 = createCall(gen_line)
+        title4 = createCall(gen_line)
+        title5 = createCall(gen_line)
 
 
 
